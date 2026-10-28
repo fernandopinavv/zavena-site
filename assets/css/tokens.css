@@ -1,0 +1,122 @@
+/*
+ * Zavena: tema do site.
+ *
+ * Sistema de papéis de cor: Material Design 3 (nomes --md-sys-color-*), o mesmo sistema do tema
+ * do app (react-native-paper, ver mobile/src/theme/paperTheme.ts). Os VALORES vêm de
+ * mobile/src/theme/colors.ts: identidade Verde Esmeralda + Carbono Grafite sobre bege #EFEEEB
+ * (working tree de 2026-10-20; o próprio arquivo ainda a marca como experimento não aprovado).
+ * Para mudar a identidade do site altere só o bloco "Papéis MD3" abaixo; o resto do CSS usa os
+ * apelidos --color-*.
+ *
+ * Contraste medido (WCAG) sobre o fundo #EFEEEB, no navegador:
+ *   on-surface   #0F172A  15,5:1   |  apoio #475569  6,5:1
+ *   link / dark  #065F46   6,6:1   |  branco sobre primary #0E7A6B  5,2:1
+ *   primary como texto: 4,5:1, só em texto grande (destaque do título). Nunca em texto pequeno.
+ *   accent       #10B981: só decoração. Nunca como cor de texto.
+ *   branco sobre os blocos escuros (degradê #10242C -> #065F46, com a fita): mínimo 4,5:1, medido por pixels.
+ * Desvio proposital do app: o textSecondary do app (#64748B) mede ~4,1:1 sobre o bege (o app o usa
+ * sobre branco, 4,8:1); no site o texto de apoio usa o onSurfaceVariant (#475569).
+ */
+:root {
+  color-scheme: light;
+
+  /* ---- Papéis MD3 (valores do app) ---- */
+  --md-sys-color-primary: #0E7A6B;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #D8EAE7;
+  --md-sys-color-on-primary-container: #065F46;
+
+  --md-sys-color-secondary: #1F2937;          /* grafite */
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #DBDDDF;
+  --md-sys-color-on-secondary-container: #1F2937;
+
+  --md-sys-color-tertiary: #0F766E;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #D9F0ED;
+  --md-sys-color-on-tertiary-container: #0B4A43;
+
+  --md-sys-color-error: #D32F2F;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-error-container: #FFDAD6;
+  --md-sys-color-on-error-container: #410002;
+
+  --md-sys-color-background: #EFEEEB;
+  --md-sys-color-on-background: #0F172A;
+  --md-sys-color-surface: #FFFFFF;
+  --md-sys-color-on-surface: #0F172A;
+  --md-sys-color-surface-variant: #E2E8F0;
+  --md-sys-color-on-surface-variant: #475569;
+  --md-sys-color-outline: #CCCCCC;
+  --md-sys-color-outline-variant: #E0E0E0;
+
+  /* Extras da marca no app (fora do conjunto MD3) */
+  --zv-primary-dark: #065F46;       /* primaryDark */
+  --zv-accent: #10B981;             /* accent: decorativo */
+  --zv-surface-highlight: #ECF4F3;  /* surfaceHighlight */
+  --zv-text-secondary: #475569;     /* ver nota de contraste acima (no app: #64748B) */
+  --zv-deep: #10242C;               /* tom mais escuro do degradê do logotipo oficial */
+
+  /* Mesmas cores em canais RGB, para sombras e brilhos translúcidos: rgb(var(--zv-primary-rgb) / .3) */
+  --zv-primary-rgb: 14 122 107;
+  --zv-secondary-rgb: 31 41 55;
+  --zv-accent-rgb: 16 185 129;
+  --zv-ink-rgb: 15 23 42;
+  --zv-bg-rgb: 239 238 235;
+
+  /* ---- Apelidos usados pelos componentes ---- */
+  --color-primary: var(--md-sys-color-primary);
+  --color-primary-dark: var(--zv-primary-dark);
+  --color-secondary: var(--md-sys-color-secondary);
+  --color-accent: var(--zv-accent);
+
+  --color-bg: var(--md-sys-color-background);
+  --color-surface: var(--md-sys-color-surface);
+  --color-text: var(--md-sys-color-on-surface);
+  --color-text-muted: var(--zv-text-secondary);
+  --color-rule: rgb(var(--zv-ink-rgb) / 0.12);            /* linhas e bordas sutis sobre o bege */
+  --color-tint: var(--zv-surface-highlight);
+  --color-tint-strong: var(--md-sys-color-primary-container);
+  --color-deep: var(--zv-deep);                           /* fim dos degradês escuros */
+
+  --color-action: var(--md-sys-color-primary);            /* botões e ícones */
+  --color-action-hover: var(--zv-primary-dark);
+  --color-on-action: var(--md-sys-color-on-primary);
+  --color-link: var(--zv-primary-dark);                   /* texto de link: mais escuro que o botão, para contraste AA sobre o bege */
+  --color-focus: var(--zv-primary-dark);
+
+  --color-danger: var(--md-sys-color-error);
+  --color-danger-container: var(--md-sys-color-error-container);
+  --color-on-danger-container: var(--md-sys-color-on-error-container);
+
+  /* Tipografia (arquivos em assets/fonts, declarados em fonts.css) */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-text: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Escala fluida (mobile 320px -> desktop 1280px) */
+  --step--1: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.625rem, 1.4rem + 1.1vw, 2.25rem);
+  --step-3: clamp(2.125rem, 1.7rem + 2.1vw, 3.5rem);
+  --step-4: clamp(2.625rem, 1.9rem + 3.6vw, 5rem);
+
+  /* Espaço (múltiplos de 4px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: clamp(4.5rem, 3rem + 6vw, 8rem);
+
+  /* Layout */
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2rem);
+  --container: 72rem;
+  --measure: 62ch;
+
+  --radius: 999px;  /* botões em pílula, como etiquetas e controles */
+  --target: 3rem; /* alvo de toque mínimo 48px */
+}

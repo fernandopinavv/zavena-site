@@ -1,0 +1,73 @@
+/* Estrutura comum a todas as páginas: cabeçalho, navegação, botões, rodapé e barra de progresso. Requer tokens.css, fonts.css e base.css. */
+
+html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 5.5rem; }
+
+/* Barra de progresso de rolagem (preenchida por site.js) */
+.progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 50;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+  transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
+}
+
+/* Cabeçalho fixo */
+.site-header { position: sticky; top: 0; z-index: 40; padding-block: var(--space-4); transition: padding 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease; }
+.site-header .container { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+/* Quase opaco de propósito: sobre o bloco escuro do fim da página os links (cor de ação) ainda precisam de contraste AA */
+.site-header.is-scrolled { padding-block: var(--space-2); background: rgb(var(--zv-bg-rgb) / 0.96); box-shadow: 0 1px 0 var(--color-rule); }
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header.is-scrolled { background: rgb(var(--zv-bg-rgb) / 0.94); -webkit-backdrop-filter: saturate(1.5) blur(14px); backdrop-filter: saturate(1.5) blur(14px); }
+}
+.brand { display: inline-flex; align-items: center; min-height: var(--target); /* alvo de toque de 48 px */ text-decoration: none; }
+.brand img { display: block; height: 2rem; width: auto; aspect-ratio: 1902 / 385; } /* marca horizontal oficial (símbolo + nome) */
+.brand:hover { text-decoration: none; }
+.site-header__right { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--space-1) var(--space-2); }
+.site-nav { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-3); }
+@media (min-width: 40rem) { .site-nav { gap: var(--space-1) var(--space-5); } }
+/* Telas de 320 px: links menores para o cabeçalho caber numa linha (sem forçar nowrap: com texto ampliado ele precisa quebrar) */
+@media (max-width: 22.5rem) {
+  .site-nav a { font-size: var(--step--1); }
+  .brand img { height: 1.625rem; }
+}
+/* Largura útil muito pequena em rem (texto ampliado a partir de ~125% num celular): o cabeçalho deixa de ser fixo para não tomar a tela */
+@media (max-width: 19.99rem) {
+  .site-header { position: static; }
+}
+.site-nav a { display: inline-flex; align-items: center; justify-content: center; min-height: var(--target); min-width: var(--target); font-weight: 500; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 0.35em; transition: text-decoration-color 0.2s ease; }
+.site-nav a:hover, .site-nav a[aria-current="true"], .site-nav a[aria-current="page"] { text-decoration-color: currentColor; }
+.site-nav .nav-extra, .site-nav .nav-mid { display: none; }
+@media (min-width: 30rem) { .site-nav .nav-mid { display: inline-flex; } }
+@media (min-width: 44rem) { .site-nav .nav-extra { display: inline-flex; } }
+
+.motion-toggle {
+  display: inline-grid; place-items: center; width: var(--target); height: var(--target); padding: 0;
+  border: 1px solid var(--color-rule); border-radius: 999px; background: var(--color-surface); color: var(--color-text);
+  cursor: pointer; transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.motion-toggle:hover { border-color: var(--color-action); }
+.motion-toggle svg { width: 1.1rem; height: 1.1rem; fill: currentColor; }
+.motion-toggle .i-play { display: none; }
+.motion-toggle[aria-pressed="true"] .i-pause { display: none; }
+.motion-toggle[aria-pressed="true"] .i-play { display: block; }
+
+/* Botões com seta */
+.btn { position: relative; gap: 0.6rem; box-shadow: 0 10px 22px -14px rgb(var(--zv-primary-rgb) / 0.55); transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.2s ease, box-shadow 0.2s ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 16px 26px -14px rgb(var(--zv-primary-rgb) / 0.55); }
+.btn--ghost { box-shadow: none; }
+.btn--ghost:hover { box-shadow: none; }
+.btn svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s ease; }
+.btn:hover svg { transform: translateX(3px); }
+.band .btn { box-shadow: 0 12px 26px -14px rgba(0, 0, 0, 0.55); }
+
+/* Rodapé */
+.site-footer { border-top: 1px solid var(--color-rule); padding-block: var(--space-7); font-size: var(--step--1); color: var(--color-text-muted); }
+.site-footer .container::before { content: ""; display: block; width: 9.5rem; aspect-ratio: 1902 / 385; margin-bottom: var(--space-5); background: url(../img/zavena-horizontal.svg) left center / contain no-repeat; }
+.site-footer p { max-width: 62ch; margin-bottom: var(--space-3); }
+.site-footer a { color: var(--color-link); }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-5); margin-bottom: var(--space-4); }
+.site-footer nav a { display: inline-flex; align-items: center; min-height: var(--target); }
+
+/* Celular deitado (tela baixa): cabeçalho não fixo para não tomar a altura */
+@media (orientation: landscape) and (max-height: 32rem) and (min-width: 30rem) {
+  .site-header { position: static; padding-block: var(--space-2); }
+}

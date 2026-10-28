@@ -5,243 +5,400 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Zavena</title>
+    <title>Zavena | Organização financeira pessoal e familiar</title>
 
     <meta name="description"
-        content="Zavena é uma plataforma destinada à organização financeira pessoal e familiar, desenvolvida pela FP Inteligência Financeira e Tecnológica LTDA.">
+        content="Mais clareza sobre o seu dinheiro: contas, cartões e faturas num só lugar, para você ou para a sua família. Disponível para Android; iOS em breve.">
+    <meta name="theme-color" content="#EFEEEB">
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+    <link rel="canonical" href="https://zavena.app/">
 
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background: #f4f7f9;
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Zavena">
+    <meta property="og:title" content="Zavena | Organização financeira pessoal e familiar">
+    <meta property="og:description"
+        content="Mais clareza sobre o seu dinheiro: contas, cartões e faturas num só lugar, para você ou para a sua família. Disponível para Android; iOS em breve.">
+    <meta property="og:url" content="https://zavena.app/">
+    <meta property="og:image" content="https://zavena.app/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logotipo do Zavena: uma fita verde em laço e o nome Zavena">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://zavena.app/assets/img/og.png">
+
+    <!--
+    Estado de movimento, definido antes da pintura para não piscar:
+    - classe "js": habilita as revelações ao rolar (site.js precisa carregar);
+    - "motion-off": visitante pausou as animações, ou o sistema pede movimento reduzido.
+    Se site.js não carregar em 4 s, a classe "js" é removida e todo o conteúdo fica visível.
+    -->
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.classList.add('js');
+            try { if (localStorage.getItem('zv-motion') === 'off') d.classList.add('motion-off'); } catch (e) { }
+            if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('motion-off', 'motion-reduced');
+            setTimeout(function () { if (!window.__zv) d.classList.remove('js'); }, 4000);
+        })();
+    </script>
+
+    <link rel="preload" href="assets/fonts/Fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/chrome.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/motion.css">
+    <script src="assets/js/site.js" defer></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Zavena",
+        "legalName": "FP Inteligência Financeira e Tecnológica LTDA",
+        "url": "https://zavena.app/",
+        "email": "contato@zavena.app",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "",
+            "addressRegion": "ES",
+            "addressCountry": "BR"
         }
-
-        header {
-            background: #1E3A8A;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.4em;
-        }
-
-        header p {
-            margin-top: 10px;
-            font-size: 1.1em;
-            color: #d6dde5;
-        }
-
-        .container {
-            max-width: 950px;
-            margin: -35px auto 40px;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 12px rgba(0, 0, 0, .08);
-        }
-
-        h2 {
-            color: #2980b9;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        p {
-            color: #555;
-            font-size: 1.05em;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-            margin-top: 30px;
-        }
-
-        .feature-item {
-            border: 1px solid #e1e8ed;
-            border-radius: 8px;
-            padding: 16px 20px;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-
-        .cta {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #1E3A8A;
-            color: white;
-            text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: .2s;
-        }
-
-        .btn:hover {
-            background: #16296b;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background: #fff;
-            border-top: 1px solid #e5e5e5;
-        }
-
-        footer a {
-            color: #666;
-            text-decoration: none;
-            margin: 0 8px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media(max-width:700px){
-
-            .container{
-                margin:20px;
-                padding:25px;
-            }
-
-            header{
-                padding:45px 20px;
-            }
-
-            h1{
-                font-size:2em;
-            }
-
-        }
-
-    </style>
-
+    }
+    </script>
 </head>
 
 <body>
 
-<header>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div class="progress" aria-hidden="true"></div>
 
-    <h1>Zavena</h1>
-
-    <p>
-        Organização financeira pessoal e familiar.
-    </p>
-
+<header class="site-header">
+    <div class="container">
+        <a class="brand" href="./" aria-label="Zavena, página inicial"><img src="assets/img/zavena-horizontal.svg" alt="" width="1902" height="385"></a>
+        <div class="site-header__right">
+            <nav class="site-nav" aria-label="Principal">
+                <a class="nav-extra" href="#como-funciona">Como funciona</a>
+                <a href="#planos">Planos</a>
+                <a class="nav-mid" href="#perguntas">Perguntas</a>
+                <a class="nav-extra" href="suporte/">Suporte</a>
+            </nav>
+            <!-- Aparece só com JavaScript (site.js). Pausa todo movimento contínuo da página. -->
+            <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pausar animações" title="Pausar animações" hidden>
+                <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.5" height="12" rx="1"/><rect x="11.5" y="4" width="3.5" height="12" rx="1"/></svg>
+                <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4.2v11.6a.6.6 0 0 0 .9.5l9-5.8a.6.6 0 0 0 0-1l-9-5.8a.6.6 0 0 0-.9.5z"/></svg>
+            </button>
+        </div>
+    </div>
 </header>
 
-<div class="container">
+<main id="conteudo">
 
-    <section>
+    <!-- 1. Primeira dobra -->
+    <section class="hero" aria-labelledby="hero-titulo">
+        <div class="container hero__grid">
 
-        <h2>O que é o Zavena</h2>
+            <div class="hero__copy">
+                <h1 id="hero-titulo"><span class="w" style="--i:0"><span>As</span></span> <span class="w" style="--i:1"><span>contas</span></span> <span class="w" style="--i:2"><span>da</span></span> <span class="w" style="--i:3"><span>sua</span></span> <span class="w" style="--i:4"><span>casa,</span></span> <span class="w" style="--i:5"><span>em</span></span> <span class="w hero__em" style="--i:6"><span>ordem.</span></span></h1>
+                <p class="lede">O aplicativo de finanças pessoais e da família: mais clareza sobre o seu dinheiro, do dia a dia ao que ainda vem pela frente.</p>
 
-        <p>
+                <div class="actions">
+                    <!--
+                    LINK DA GOOGLE PLAY. Montado a partir do pacote com.zavena.finance (mobile/app.json).
+                    NÃO foi verificado: a ficha precisa existir e estar pública. A página foi escrita, a pedido
+                    do responsável, como se o aplicativo já estivesse publicado. Se a ficha ainda não estiver
+                    no ar, este botão leva a uma página inexistente: confirmar antes de publicar o site.
+                    -->
+                    <a class="btn" href="https://play.google.com/store/apps/details?id=com.zavena.finance">Baixar na Google Play <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+                    <a class="btn btn--ghost" href="#como-funciona">Ver como funciona</a>
+                </div>
+                <p class="small hero__note">Plano gratuito disponível. Para Android. <span class="tag tag--soon">iOS em breve</span></p>
+            </div>
 
-            O Zavena é uma plataforma destinada à organização financeira pessoal e familiar,
-            desenvolvida pela <strong>FP Inteligência Financeira e Tecnológica LTDA</strong>.
+            <div class="orbit">
+                <!-- Fita do logotipo oficial: único ornamento da primeira dobra (decorativo). -->
+                <img class="orbit__ribbon" src="assets/img/zavena-simbolo.svg" alt="" width="844" height="385" aria-hidden="true">
 
-        </p>
-
-        <p>
-
-            O Zavena não é instituição financeira, banco, corretora, consultoria de investimentos
-            nem escritório de contabilidade.
-
-        </p>
-
-    </section>
-
-    <section>
-
-        <h2>Funcionalidades</h2>
-
-        <div class="feature-grid">
-
-            <div class="feature-item">Controle de receitas e despesas</div>
-            <div class="feature-item">Gestão de contas bancárias</div>
-            <div class="feature-item">Gestão de cartões de crédito</div>
-            <div class="feature-item">Planejamento financeiro</div>
-            <div class="feature-item">Controle patrimonial</div>
-            <div class="feature-item">Controle familiar compartilhado</div>
-            <div class="feature-item">Importação de dados financeiros</div>
-            <div class="feature-item">Sugestões automáticas de lançamentos</div>
-            <div class="feature-item">Relatórios gerenciais</div>
+                <!--
+                ESPAÇO RESERVADO. Aqui entra uma captura REAL da Home do aplicativo, quando existir
+                (ver assets/img/README.md). Não substituir por tela simulada, ilustração do produto ou
+                imagem gerada.
+                -->
+                <figure class="shot hero__shot" data-placeholder="captura-home">
+                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real da tela inicial do aplicativo">
+                        Captura real do aplicativo<br>(espaço reservado)
+                    </div>
+                    <figcaption>Espaço reservado para a tela inicial do aplicativo.</figcaption>
+                </figure>
+            </div>
 
         </div>
-
     </section>
 
-    <section class="cta">
+    <!-- 2 a 6. Como funciona -->
+    <div id="como-funciona">
 
-        <h2>Como começar</h2>
+        <section class="section" aria-labelledby="t-dia">
+            <div class="container feature" data-num="01">
+                <div class="feature__copy reveal">
+                    <h2 id="t-dia">Saiba para onde vai o seu dinheiro.</h2>
+                    <p>Do mercado ao aluguel, veja cada receita e cada despesa organizadas do seu jeito, e entenda para onde o seu dinheiro foi no fim do mês.</p>
+                    <p>E as contas que se repetem todo mês? O Zavena cuida delas para você.</p>
+                </div>
+                <!-- ESPAÇO RESERVADO: captura real da tela de novo lançamento. Não simular. -->
+                <figure class="shot reveal reveal--right" data-placeholder="captura-lancamento">
+                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real da tela de novo lançamento">
+                        Captura real:<br>novo lançamento<br>(espaço reservado)
+                    </div>
+                    <figcaption>Espaço reservado para a tela de novo lançamento.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section section--tint" aria-labelledby="t-cartao">
+            <div class="container feature feature--reverse" data-num="02">
+                <div class="feature__copy reveal">
+                    <h2 id="t-cartao">A fatura do cartão, sem surpresas.</h2>
+                    <p>Acompanhe as suas contas e os seus cartões de crédito e saiba, com antecedência, o que já está comprometido nos próximos meses. Faturas e parcelas deixam de ser um mistério.</p>
+                </div>
+                <!-- ESPAÇO RESERVADO: captura real de uma fatura de cartão com parcelas. Não simular. -->
+                <figure class="shot reveal reveal--left" data-placeholder="captura-fatura">
+                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real de uma fatura de cartão">
+                        Captura real:<br>fatura do cartão<br>(espaço reservado)
+                    </div>
+                    <figcaption>Espaço reservado para uma fatura de cartão.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="t-importar">
+            <div class="container feature" data-num="03">
+                <div class="feature__copy reveal">
+                    <h2 id="t-importar">Não digite tudo de novo.</h2>
+                    <p>Já tem o seu histórico guardado em extratos ou planilhas? Leve tudo para o Zavena e comece com a casa em ordem desde o primeiro dia.</p>
+                    <p><strong>Lançamento Rápido.</strong> Tem um comprovante na mão? Mostre para o Zavena e deixe o lançamento praticamente pronto: você só confere. <span class="tag">Premium</span></p>
+                    <p class="small">Quer saber como cuidamos dos seus dados? Leia a <a href="privacidade/">Política de Privacidade</a>.</p>
+                </div>
+                <!-- ESPAÇO RESERVADO: captura real da tela de importação. Não simular. -->
+                <figure class="shot reveal reveal--right" data-placeholder="captura-importacao">
+                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real da tela de importação">
+                        Captura real:<br>importação<br>(espaço reservado)
+                    </div>
+                    <figcaption>Espaço reservado para a tela de importação.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section section--tint" aria-labelledby="t-familia">
+            <div class="container feature feature--reverse" data-num="04">
+                <div class="feature__copy reveal">
+                    <h2 id="t-familia">A casa inteira, no mesmo lugar. <span class="tag">Premium</span></h2>
+                    <p>Dividir a vida financeira fica mais leve quando todo mundo está na mesma página. Convide a sua família e organizem o dinheiro da casa juntos.</p>
+                </div>
+                <!-- ESPAÇO RESERVADO: captura real da tela de famílias. Não simular. -->
+                <figure class="shot reveal reveal--left" data-placeholder="captura-familia">
+                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real da tela de famílias">
+                        Captura real:<br>família<br>(espaço reservado)
+                    </div>
+                    <figcaption>Espaço reservado para a tela de família.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="t-relatorios">
+            <div class="container feature" data-num="05">
+                <div class="feature__copy reveal">
+                    <h2 id="t-relatorios">Entenda como o período fechou. <span class="tag">Premium</span></h2>
+                    <p>Descubra, de forma clara, como foi o seu período: o que entrou, o que saiu e o que isso significa para o seu caixa. E, se algum número chamar a atenção, você chega até o motivo.</p>
+                </div>
+                <!-- ESPAÇO RESERVADO: captura real da tela de relatórios. Não simular. -->
+                <figure class="shot reveal reveal--right" data-placeholder="captura-relatorios">
+                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real da tela de relatórios">
+                        Captura real:<br>relatórios<br>(espaço reservado)
+                    </div>
+                    <figcaption>Espaço reservado para a tela de relatórios.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section section--tint" aria-labelledby="t-tambem">
+            <div class="container">
+                <div class="section__intro reveal">
+                    <h2 id="t-tambem">Mais do que o essencial.</h2>
+                </div>
+                <ul class="also">
+                    <li class="reveal" style="--i:0">
+                        <span class="also__icon" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M5 3h7l3 3v11H5z"/><path d="M8 9.5h4M8 12.5h4M8 6.5h2"/></svg></span>
+                        <h3>Contratos e empréstimos</h3>
+                        <p>Dívidas e empréstimos também têm lugar no Zavena, junto do resto da sua vida financeira.</p>
+                    </li>
+                    <li class="reveal" style="--i:1">
+                        <span class="also__icon" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3 10.2V4.5A1.5 1.5 0 0 1 4.5 3h5.7l7 7a1.5 1.5 0 0 1 0 2.1l-5 5a1.5 1.5 0 0 1-2.1 0z"/><circle cx="7.2" cy="7.2" r="1.1"/></svg></span>
+                        <h3>Do seu jeito</h3>
+                        <p>Organize tudo com categorias que fazem sentido para a sua rotina, não para a de um modelo pronto.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 7. Planos -->
+    <section class="section" id="planos" aria-labelledby="t-planos">
+        <div class="container">
+            <div class="section__intro reveal">
+                <h2 id="t-planos">Comece de graça. Evolua quando precisar.</h2>
+                <p class="lede">Comece sem pagar nada e passe para o Premium só quando fizer sentido para você.</p>
+            </div>
+
+            <div class="plan-grid">
+                <article class="plan reveal" aria-labelledby="plano-gratuito">
+                    <h3 id="plano-gratuito">Gratuito</h3>
+                    <p class="plan__lead">Para organizar o essencial.</p>
+                    <ul class="plan__list">
+                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Receitas, despesas e transferências do dia a dia</li>
+                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Importação de extratos e planilhas</li>
+                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Dívidas e empréstimos no mesmo lugar</li>
+                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Até 2 contas e 1 cartão de crédito</li>
+                    </ul>
+                </article>
+
+                <article class="plan plan--premium reveal" style="--i:1" aria-labelledby="plano-premium">
+                    <h3 id="plano-premium">Premium</h3>
+                    <p class="plan__lead">Tudo do gratuito, e mais para a sua rotina inteira.</p>
+                    <ul class="plan__list">
+                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Contas e cartões sem limite</li>
+                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>A casa inteira junto, em família</li>
+                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Relatórios para entender como o período fechou</li>
+                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Lançamento Rápido: do comprovante ao lançamento</li>
+                    </ul>
+                </article>
+            </div>
+
+            <p class="plans__note">O Premium é uma assinatura mensal ou anual, contratada e cobrada pela Google Play.</p>
+        </div>
+    </section>
+
+    <!-- 8. Perguntas -->
+    <section class="section" id="perguntas" aria-labelledby="t-perguntas">
+        <div class="container">
+            <div class="section__intro reveal">
+                <h2 id="t-perguntas">Antes de baixar.</h2>
+            </div>
+
+            <div class="faq reveal">
+                <details>
+                    <summary>O Zavena é um banco?</summary>
+                    <p>Não. O Zavena não é instituição financeira, banco, corretora, consultoria de investimentos nem escritório de contabilidade. Ele serve para você organizar e acompanhar o seu dinheiro, e não movimenta valores.</p>
+                </details>
+                <details>
+                    <summary>Em quais aparelhos funciona?</summary>
+                    <p>No Android, pela Google Play. A versão para iOS está em breve.</p>
+                </details>
+                <details>
+                    <summary>Preciso pagar para usar?</summary>
+                    <p>Não para começar. O plano gratuito já resolve o essencial, com até 2 contas e 1 cartão. O Premium, uma assinatura mensal ou anual pela Google Play, libera contas e cartões sem limite, a família, os relatórios e o Lançamento Rápido.</p>
+                </details>
+                <details>
+                    <summary>Posso usar sozinho, sem família?</summary>
+                    <p>Pode. A família é opcional e faz parte do Premium. O Zavena funciona para quem quer organizar só as próprias contas.</p>
+                </details>
+                <details>
+                    <summary>Todo mundo da família precisa ter o Premium?</summary>
+                    <p>Sim. Cada pessoa que participa da família precisa do próprio plano Premium ativo.</p>
+                </details>
+                <details>
+                    <summary>Posso levar o que já tenho de outro lugar?</summary>
+                    <p>Sim. O Zavena aceita extratos em OFX e planilhas Excel. O passo a passo você vê no aplicativo.</p>
+                </details>
+                <details>
+                    <summary>O Zavena pede a senha do meu banco?</summary>
+                    <p>Não. A <a href="privacidade/">Política de Privacidade</a> informa que o Zavena não solicita nem armazena senhas bancárias.</p>
+                </details>
+                <details>
+                    <summary>Como excluo a minha conta?</summary>
+                    <p>A página <a href="exclusao-de-conta/">Exclusão de Conta</a> explica o passo a passo, o prazo e o que é excluído.</p>
+                </details>
+                <details>
+                    <summary>Como falo com o suporte?</summary>
+                    <p>Pela página de <a href="suporte/">Suporte</a> ou escrevendo para <a href="mailto:contato@zavena.app">contato@zavena.app</a>.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8b. Quem está por trás: só fatos já verificados (empresa, política, exclusão de conta, suporte) -->
+    <section class="section" id="transparencia" aria-labelledby="t-confianca">
+        <div class="container">
+            <div class="section__intro reveal">
+                <h2 id="t-confianca">Quem está por trás do Zavena.</h2>
+            </div>
+            <ul class="trust">
+                <li class="reveal">
+                    <h3>Empresa identificada</h3>
+                    <p>O Zavena é desenvolvido pela FP Inteligência Financeira e Tecnológica LTDA, CNPJ 50.900.103/0001-86.</p>
+                </li>
+                <li class="reveal" style="--i:1">
+                    <h3>Dados e senhas</h3>
+                    <p>Leia a <a href="privacidade/">Política de Privacidade</a> e os <a href="termos/">Termos de Uso</a> antes de começar. O Zavena não solicita nem armazena senhas bancárias.</p>
+                </li>
+                <li class="reveal" style="--i:2">
+                    <h3>A decisão é sua</h3>
+                    <p>Você pode pedir a <a href="exclusao-de-conta/">exclusão da sua conta</a> e dos seus dados quando quiser, com 30 dias para desistir.</p>
+                </li>
+                <li class="reveal" style="--i:3">
+                    <h3>Quem responde</h3>
+                    <p>Ficou com dúvida? Fale pela página de <a href="suporte/">Suporte</a> ou escreva para <a href="mailto:contato@zavena.app">contato@zavena.app</a>.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 9. Convite final -->
+    <section class="band cta-final" aria-labelledby="t-final">
+        <img class="cta-final__ribbon" src="assets/img/zavena-simbolo.svg" alt="" width="844" height="385" aria-hidden="true">
+        <div class="container">
+            <h2 id="t-final" class="reveal">Comece a pôr as contas da casa em ordem.</h2>
+            <p class="lede reveal" style="--i:1">Baixe o Zavena, cadastre a sua primeira conta e veja o seu dinheiro num só lugar.</p>
+            <div class="actions reveal" style="--i:2">
+                <a class="btn" href="https://play.google.com/store/apps/details?id=com.zavena.finance">Baixar na Google Play <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+                <span class="tag tag--soon">iOS em breve</span>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+
+        <p>O Zavena é uma plataforma destinada à organização financeira pessoal e familiar, desenvolvida pela
+            <strong>FP Inteligência Financeira e Tecnológica LTDA</strong>.</p>
+
+        <p>O Zavena não é instituição financeira, banco, corretora, consultoria de investimentos nem escritório de
+            contabilidade.</p>
 
         <p>
-
-            Disponível para Android através da Google Play.
-
+            <strong>FP Inteligência Financeira e Tecnológica LTDA</strong><br>
+            CNPJ 50.900.103/0001-86<br>
+            Brasil
         </p>
 
-        <!--
-        Quando o link da ficha na Google Play estiver disponível, substituir o botão abaixo.
-        -->
+        <nav aria-label="Documentos e suporte">
+            <a href="termos/">Termos de Uso</a>
+            <a href="privacidade/">Política de Privacidade</a>
+            <a href="exclusao-de-conta/">Exclusão de Conta</a>
+            <a href="suporte/">Suporte</a>
+        </nav>
 
-        <!--
-        <a class="btn"
-           href="https://play.google.com/store/apps/details?id=com.fluxy.finance">
-            Baixar na Google Play
-        </a>
-        -->
+        <p><a href="mailto:contato@zavena.app">contato@zavena.app</a></p>
 
-        <a class="btn"
-           href="mailto:contato@fpinteligencia.cloud">
-            Entrar em Contato
-        </a>
-
-    </section>
-
-</div>
-
-<footer>
-
-<p>
-
-<strong>FP Inteligência Financeira e Tecnológica LTDA</strong>
-<br>
-CNPJ 50.900.103/0001-86
-<br>
-Vila Velha • Espírito Santo • Brasil
-
-</p>
-
-<p>
-
-<a href="termos/">Termos de Uso</a> |
-<a href="privacidade/">Política de Privacidade</a> |
-<a href="exclusao-de-conta/">Exclusão de Conta</a> |
-<a href="suporte/">Suporte</a>
-
-</p>
-
-<p>
-
-<a href="mailto:contato@fpinteligencia.cloud">contato@fpinteligencia.cloud</a>
-
-</p>
-
+    </div>
 </footer>
 
 </body>

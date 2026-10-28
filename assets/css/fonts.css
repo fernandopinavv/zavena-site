@@ -1,0 +1,19 @@
+/*
+ * Fontes autohospedadas (subsets latinos, SIL OFL 1.1). Origem e licenças: assets/fonts/ORIGEM.md.
+ * Os intervalos de peso são os dos arquivos: pedir peso fora deles gera negrito falso ou clamp.
+ */
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/Fraunces-latin.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}

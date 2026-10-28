@@ -1,0 +1,37 @@
+/*
+ * Movimento. Tudo aqui só vale quando:
+ *   - o sistema NÃO pede movimento reduzido (prefers-reduced-motion: no-preference), e
+ *   - o visitante não pausou as animações (classe html.motion-off, botão no cabeçalho).
+ * Sem essas condições a página fica estática e com todo o conteúdo visível.
+ * Só são animados transform, opacity e as propriedades individuais rotate/translate, para não
+ * causar deslocamento de layout. Ritmo calmo: poucas peças, curvas suaves.
+ */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Primeira dobra: título palavra por palavra e entrada do restante */
+  html:not(.motion-off) .w > span { transform: translateY(108%); animation: rise 0.95s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation-delay: calc(var(--i, 0) * 75ms + 120ms); }
+  html:not(.motion-off) .hero .lede,
+  html:not(.motion-off) .hero .actions,
+  html:not(.motion-off) .hero__note { animation: fade-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  html:not(.motion-off) .hero .lede { animation-delay: 0.55s; }
+  html:not(.motion-off) .hero .actions { animation-delay: 0.7s; }
+  html:not(.motion-off) .hero__note { animation-delay: 0.85s; }
+  html:not(.motion-off) .orbit .shot { animation: pop 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both; }
+
+  /* A fita da marca: aparece e passa a balançar devagar */
+  html:not(.motion-off) .orbit__ribbon { animation: fade-in 1.4s ease 0.1s both, sway-a 16s ease-in-out 1.5s infinite alternate; }
+  html:not(.motion-off) .cta-final__ribbon { animation: sway-b 20s ease-in-out infinite alternate; }
+
+  /* Revelação ao rolar (a classe js só existe se site.js carregou; ver fallback no HTML) */
+  html.js:not(.motion-off) .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--i, 0) * 90ms), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--i, 0) * 90ms); will-change: opacity, transform; }
+  html.js:not(.motion-off) .reveal--left { transform: translateX(-40px); }
+  html.js:not(.motion-off) .reveal--right { transform: translateX(40px) rotate(2deg); }
+  html.js:not(.motion-off) .reveal.is-visible { opacity: 1; transform: none; will-change: auto; }
+
+  @keyframes rise { to { transform: translateY(0); } }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes pop { from { opacity: 0; transform: translateY(40px) scale(0.94); } to { opacity: 1; transform: none; } }
+  @keyframes sway-a { from { rotate: -8deg; } to { rotate: -4.5deg; } }
+  @keyframes sway-b { from { rotate: -8deg; } to { rotate: -4.5deg; } }
+}
