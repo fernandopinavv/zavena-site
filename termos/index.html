@@ -7,11 +7,43 @@
 
     <title>Termos de Uso | Zavena</title>
 
+    <meta name="description"
+        content="Termos de Uso do Zavena: condições de uso do aplicativo, assinaturas, leitura de notificações e responsabilidades do usuário.">
     <meta name="theme-color" content="#EFEEEB">
     <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/img/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
     <link rel="canonical" href="https://zavena.app/termos/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Zavena">
+    <meta property="og:title" content="Termos de Uso | Zavena">
+    <meta property="og:description"
+        content="Termos de Uso do Zavena: condições de uso do aplicativo, assinaturas, leitura de notificações e responsabilidades do usuário.">
+    <meta property="og:url" content="https://zavena.app/termos/">
+    <meta property="og:image" content="https://zavena.app/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logotipo do Zavena: uma fita verde em laço e o nome Zavena">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://zavena.app/assets/img/og.png">
+
+    <!--
+    Estado de movimento, definido antes da pintura para não piscar (mesmo script da home):
+    - classe "js": habilita as revelações ao rolar (site.js precisa carregar);
+    - "motion-off": visitante pausou as animações, ou o sistema pede movimento reduzido.
+    Se site.js não carregar em 4 s, a classe "js" é removida e todo o conteúdo fica visível.
+    -->
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.classList.add('js');
+            try { if (localStorage.getItem('zv-motion') === 'off') d.classList.add('motion-off'); } catch (e) { }
+            if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('motion-off', 'motion-reduced');
+            setTimeout(function () { if (!window.__zv) d.classList.remove('js'); }, 4000);
+        })();
+    </script>
 
     <link rel="preload" href="../assets/fonts/Fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -20,6 +52,7 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/chrome.css">
     <link rel="stylesheet" href="../assets/css/page.css">
+    <link rel="stylesheet" href="../assets/css/motion.css">
     <script src="../assets/js/site.js" defer></script>
 </head>
 
@@ -38,11 +71,17 @@
                 <a class="nav-mid" href="../#perguntas">Perguntas</a>
                 <a class="nav-extra" href="../suporte/">Suporte</a>
             </nav>
+            <!-- Aparece só com JavaScript (site.js). Pausa todo movimento contínuo da página. -->
+            <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pausar animações" title="Pausar animações" hidden>
+                <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.5" height="12" rx="1"/><rect x="11.5" y="4" width="3.5" height="12" rx="1"/></svg>
+                <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4.2v11.6a.6.6 0 0 0 .9.5l9-5.8a.6.6 0 0 0 0-1l-9-5.8a.6.6 0 0 0-.9.5z"/></svg>
+            </button>
         </div>
     </div>
 </header>
 
 <section class="page-head" aria-labelledby="titulo-pagina">
+    <img class="page-head__ribbon" src="../assets/img/zavena-simbolo.svg" alt="" width="844" height="385" aria-hidden="true">
     <div class="container">
         <h1 id="titulo-pagina">Termos de Uso</h1>
         <p class="date">
@@ -57,7 +96,7 @@
     <div class="container">
         <div class="page__body">
 
-<h2>1. Aceitação</h2>
+<h2 class="reveal">1. Aceitação</h2>
 
 <p>
 
@@ -73,7 +112,7 @@ não utilize o aplicativo.
 
 </p>
 
-<h2>2. Finalidade do Zavena</h2>
+<h2 class="reveal">2. Finalidade do Zavena</h2>
 
 <p>
 
@@ -113,7 +152,7 @@ consultoria de investimentos nem escritório de contabilidade.
 
 </p>
 
-<h2>3. Cadastro</h2>
+<h2 class="reveal">3. Cadastro</h2>
 
 <p>
 
@@ -135,7 +174,7 @@ e comunicar imediatamente qualquer uso não autorizado de sua conta.
 
 </p>
 
-<h2>4. Assinaturas</h2>
+<h2 class="reveal">4. Assinaturas</h2>
 
 <p>
 
@@ -174,7 +213,7 @@ loja de aplicativos.
 
 </p>
 
-<h2>5. Leitura de notificações</h2>
+<h2 class="reveal">5. Leitura de notificações</h2>
 
 <p>
 
@@ -205,13 +244,13 @@ armazenamento definitivo.
 
 </p>
 
-<h2>6. Auditoria e melhoria contínua da Captura Inteligente</h2>
+<h2 class="reveal">6. Auditoria e melhoria contínua da Captura Inteligente</h2>
 
 <p>
 
 O Zavena poderá tratar dados operacionais gerados durante a utilização dos
-recursos de Captura Inteligente — fotografia, scanner, galeria,
-compartilhamento de comprovantes e leitura de notificações financeiras —
+recursos de Captura Inteligente (fotografia, scanner, galeria,
+compartilhamento de comprovantes e leitura de notificações financeiras)
 para auditoria, diagnóstico, correção de falhas, avaliação de desempenho e
 melhoria contínua desses recursos.
 
@@ -221,7 +260,7 @@ melhoria contínua desses recursos.
 
 Esse tratamento é conduzido exclusivamente pela equipe da FP Inteligência.
 O usuário não participa conscientemente de nenhum programa de
-treinamento — apenas utiliza a ferramenta normalmente e percebe, com o
+treinamento: apenas utiliza a ferramenta normalmente e percebe, com o
 tempo, sua evolução (reconhecimento mais preciso, menos necessidade de
 correções).
 
@@ -234,7 +273,7 @@ legal constam na Política de Privacidade do Zavena.
 
 </p>
 
-<h2>7. Responsabilidades do usuário</h2>
+<h2 class="reveal">7. Responsabilidades do usuário</h2>
 
 <p>
 
@@ -254,7 +293,7 @@ O usuário é responsável por:
 
 </ul>
 
-<h2>8. Limitação de responsabilidade</h2>
+<h2 class="reveal">8. Limitação de responsabilidade</h2>
 
 <p>
 
@@ -286,7 +325,7 @@ funcionalidade.
 
 </p>
 
-<h2>9. Propriedade intelectual</h2>
+<h2 class="reveal">9. Propriedade intelectual</h2>
 
 <p>
 
@@ -304,7 +343,7 @@ tentativa de comprometer sua segurança ou funcionamento.
 
 </p>
 
-<h2>10. Dados pessoais</h2>
+<h2 class="reveal">10. Dados pessoais</h2>
 
 <p>
 
@@ -313,7 +352,7 @@ Privacidade do Zavena.
 
 </p>
 
-<h2>11. Alterações destes Termos</h2>
+<h2 class="reveal">11. Alterações destes Termos</h2>
 
 <p>
 
@@ -329,7 +368,7 @@ sobre alterações relevantes.
 
 </p>
 
-<h2>12. Legislação aplicável</h2>
+<h2 class="reveal">12. Legislação aplicável</h2>
 
 <p>
 
@@ -344,7 +383,7 @@ eventuais controvérsias, observada a legislação aplicável.
 
 </p>
 
-<h2>13. Contato</h2>
+<h2 class="reveal">13. Contato</h2>
 
 <p>
 

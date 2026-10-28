@@ -7,11 +7,43 @@
 
     <title>Exclusão de Conta | Zavena</title>
 
+    <meta name="description"
+        content="Como solicitar a exclusão definitiva da sua conta e dos seus dados pessoais no Zavena, pelo aplicativo ou por e-mail.">
     <meta name="theme-color" content="#EFEEEB">
     <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/img/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
     <link rel="canonical" href="https://zavena.app/exclusao-de-conta/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Zavena">
+    <meta property="og:title" content="Exclusão de Conta | Zavena">
+    <meta property="og:description"
+        content="Como solicitar a exclusão definitiva da sua conta e dos seus dados pessoais no Zavena, pelo aplicativo ou por e-mail.">
+    <meta property="og:url" content="https://zavena.app/exclusao-de-conta/">
+    <meta property="og:image" content="https://zavena.app/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logotipo do Zavena: uma fita verde em laço e o nome Zavena">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://zavena.app/assets/img/og.png">
+
+    <!--
+    Estado de movimento, definido antes da pintura para não piscar (mesmo script da home):
+    - classe "js": habilita as revelações ao rolar (site.js precisa carregar);
+    - "motion-off": visitante pausou as animações, ou o sistema pede movimento reduzido.
+    Se site.js não carregar em 4 s, a classe "js" é removida e todo o conteúdo fica visível.
+    -->
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.classList.add('js');
+            try { if (localStorage.getItem('zv-motion') === 'off') d.classList.add('motion-off'); } catch (e) { }
+            if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('motion-off', 'motion-reduced');
+            setTimeout(function () { if (!window.__zv) d.classList.remove('js'); }, 4000);
+        })();
+    </script>
 
     <link rel="preload" href="../assets/fonts/Fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -20,6 +52,7 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/chrome.css">
     <link rel="stylesheet" href="../assets/css/page.css">
+    <link rel="stylesheet" href="../assets/css/motion.css">
     <script src="../assets/js/site.js" defer></script>
 </head>
 
@@ -38,11 +71,17 @@
                 <a class="nav-mid" href="../#perguntas">Perguntas</a>
                 <a class="nav-extra" href="../suporte/">Suporte</a>
             </nav>
+            <!-- Aparece só com JavaScript (site.js). Pausa todo movimento contínuo da página. -->
+            <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pausar animações" title="Pausar animações" hidden>
+                <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.5" height="12" rx="1"/><rect x="11.5" y="4" width="3.5" height="12" rx="1"/></svg>
+                <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4.2v11.6a.6.6 0 0 0 .9.5l9-5.8a.6.6 0 0 0 0-1l-9-5.8a.6.6 0 0 0-.9.5z"/></svg>
+            </button>
         </div>
     </div>
 </header>
 
 <section class="page-head" aria-labelledby="titulo-pagina">
+    <img class="page-head__ribbon" src="../assets/img/zavena-simbolo.svg" alt="" width="844" height="385" aria-hidden="true">
     <div class="container">
         <h1 id="titulo-pagina">Solicitação de Exclusão de Conta</h1>
         
@@ -60,20 +99,20 @@ pessoais a qualquer momento.
 
 </p>
 
-<div class="alert">
+<div class="alert reveal">
 
 <strong>Atenção:</strong>
 
 A exclusão da conta é permanente e irreversível.
 Após concluída, não será possível recuperar seus dados.
 Você terá um <strong>prazo de 30 dias</strong> para cancelar a solicitação antes que a exclusão
-seja concluída — veja a seção "Prazo" abaixo.
+seja concluída. Veja a seção "Prazo" abaixo.
 
 </div>
 
-<h2>Como solicitar</h2>
+<h2 class="reveal">Como solicitar</h2>
 
-<div class="card">
+<div class="card reveal">
 
 <h3>
 
@@ -109,7 +148,7 @@ Após a validação, sua solicitação será registrada.
 
 </div>
 
-<div class="card">
+<div class="card reveal">
 
 <h3>
 
@@ -158,7 +197,7 @@ Solicitar Exclusão
 
 </div>
 
-<h2>O que será excluído</h2>
+<h2 class="reveal">O que será excluído</h2>
 
 <ul>
 
@@ -190,7 +229,7 @@ Solicitar Exclusão
 
 </ul>
 
-<h2>O que pode permanecer</h2>
+<h2 class="reveal">O que pode permanecer</h2>
 
 <p>
 
@@ -209,7 +248,7 @@ necessário ao cumprimento de obrigações legais ou regulatórias.
 
 </ul>
 
-<h2>Leitor de notificações</h2>
+<h2 class="reveal">Leitor de notificações</h2>
 
 <p>
 
@@ -227,14 +266,14 @@ consentimento ou exclusão do aplicativo.
 
 </p>
 
-<h2>Prazo e período de arrependimento</h2>
+<h2 class="reveal">Prazo e período de arrependimento</h2>
 
 <p>
 
 Após a validação da solicitação (código de confirmação), sua conta entra em processo de
 exclusão agendada. Você tem um <strong>prazo de 30 dias corridos</strong> a partir da
 confirmação para <strong>cancelar a solicitação</strong> a qualquer momento pelo aplicativo,
-sem necessidade de novo código — nesse caso, nenhum dado é excluído e sua conta continua
+sem necessidade de novo código. Nesse caso, nenhum dado é excluído e sua conta continua
 ativa normalmente.
 
 </p>
@@ -249,7 +288,7 @@ definitiva ser concluída.
 
 </p>
 
-<h2>Dúvidas</h2>
+<h2 class="reveal">Dúvidas</h2>
 
 <p>
 

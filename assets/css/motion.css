@@ -21,6 +21,7 @@
   /* A fita da marca: aparece e passa a balançar devagar */
   html:not(.motion-off) .orbit__ribbon { animation: fade-in 1.4s ease 0.1s both, sway-a 16s ease-in-out 1.5s infinite alternate; }
   html:not(.motion-off) .cta-final__ribbon { animation: sway-b 20s ease-in-out infinite alternate; }
+  html:not(.motion-off) .page-head__ribbon { animation: fade-in 1.2s ease 0.1s both, sway-b 20s ease-in-out infinite alternate; }
 
   /* Revelação ao rolar (a classe js só existe se site.js carregou; ver fallback no HTML) */
   html.js:not(.motion-off) .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--i, 0) * 90ms), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--i, 0) * 90ms); will-change: opacity, transform; }

@@ -7,11 +7,43 @@
 
     <title>Suporte | Zavena</title>
 
+    <meta name="description"
+        content="Fale com o suporte do Zavena para dúvidas sobre sua conta, seus dados pessoais ou o funcionamento do aplicativo.">
     <meta name="theme-color" content="#EFEEEB">
     <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/img/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
     <link rel="canonical" href="https://zavena.app/suporte/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Zavena">
+    <meta property="og:title" content="Suporte | Zavena">
+    <meta property="og:description"
+        content="Fale com o suporte do Zavena para dúvidas sobre sua conta, seus dados pessoais ou o funcionamento do aplicativo.">
+    <meta property="og:url" content="https://zavena.app/suporte/">
+    <meta property="og:image" content="https://zavena.app/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logotipo do Zavena: uma fita verde em laço e o nome Zavena">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://zavena.app/assets/img/og.png">
+
+    <!--
+    Estado de movimento, definido antes da pintura para não piscar (mesmo script da home):
+    - classe "js": habilita as revelações ao rolar (site.js precisa carregar);
+    - "motion-off": visitante pausou as animações, ou o sistema pede movimento reduzido.
+    Se site.js não carregar em 4 s, a classe "js" é removida e todo o conteúdo fica visível.
+    -->
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.classList.add('js');
+            try { if (localStorage.getItem('zv-motion') === 'off') d.classList.add('motion-off'); } catch (e) { }
+            if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('motion-off', 'motion-reduced');
+            setTimeout(function () { if (!window.__zv) d.classList.remove('js'); }, 4000);
+        })();
+    </script>
 
     <link rel="preload" href="../assets/fonts/Fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -20,6 +52,7 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/chrome.css">
     <link rel="stylesheet" href="../assets/css/page.css">
+    <link rel="stylesheet" href="../assets/css/motion.css">
     <script src="../assets/js/site.js" defer></script>
 </head>
 
@@ -38,11 +71,17 @@
                 <a class="nav-mid" href="../#perguntas">Perguntas</a>
                 <a class="nav-extra" href="../suporte/" aria-current="page">Suporte</a>
             </nav>
+            <!-- Aparece só com JavaScript (site.js). Pausa todo movimento contínuo da página. -->
+            <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pausar animações" title="Pausar animações" hidden>
+                <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.5" height="12" rx="1"/><rect x="11.5" y="4" width="3.5" height="12" rx="1"/></svg>
+                <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4.2v11.6a.6.6 0 0 0 .9.5l9-5.8a.6.6 0 0 0 0-1l-9-5.8a.6.6 0 0 0-.9.5z"/></svg>
+            </button>
         </div>
     </div>
 </header>
 
 <section class="page-head" aria-labelledby="titulo-pagina">
+    <img class="page-head__ribbon" src="../assets/img/zavena-simbolo.svg" alt="" width="844" height="385" aria-hidden="true">
     <div class="container">
         <h1 id="titulo-pagina">Suporte</h1>
         
@@ -72,7 +111,7 @@ contato@zavena.app
 
 </p>
 
-<h2>Outros canais úteis</h2>
+<h2 class="reveal">Outros canais úteis</h2>
 
 <ul>
 

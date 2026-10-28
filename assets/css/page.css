@@ -4,10 +4,13 @@
  * tocado: aqui só entra apresentação.
  */
 
-/* Cabeçalho da página: título grande sem ornamento: a marca fica no cabeçalho e no rodapé */
-.page-head { padding-block: var(--space-5) var(--space-6); }
+/* Cabeçalho da página: título grande + fita do símbolo bem sutil ao fundo (mesmo recurso do
+   .cta-final__ribbon na home, mas discreto: estas são páginas de leitura séria). */
+.page-head { position: relative; isolation: isolate; overflow: hidden; padding-block: var(--space-5) var(--space-6); }
 .page-head h1 { max-width: 20ch; margin-bottom: var(--space-3); font-size: clamp(2.25rem, 1.5rem + 3.4vw, 4rem); }
 .page-head .date { margin: 0; color: var(--color-text-muted); font-size: var(--step--1); }
+.page-head__ribbon { position: absolute; z-index: -1; top: -3rem; right: -8rem; width: 20rem; max-width: none; height: auto; opacity: 0.1; rotate: -8deg; pointer-events: none; user-select: none; }
+@media (min-width: 56rem) { .page-head__ribbon { width: 26rem; right: -4rem; opacity: 0.14; } }
 
 /* Corpo do texto */
 .page { padding-block: var(--space-4) var(--space-9); }

@@ -1,5 +1,10 @@
 /* Página inicial (só o que é da home). Requer tokens.css, fonts.css, base.css e chrome.css. Movimento fica em motion.css. */
 
+/* Botão de pausar animação escondido no cabeçalho da home, a pedido — fica só nas páginas
+   internas (chrome.css). O mecanismo de pausa em si (site.js, localStorage, motion-off) continua
+   ativo; só o controle manual via UI desaparece aqui. */
+.site-header .motion-toggle { display: none !important; }
+
 /* Primeira dobra: a fita do logotipo é o único ornamento (sem brilhos, pontilhados nem formas soltas) */
 .hero { position: relative; isolation: isolate; overflow-x: clip; padding-block: var(--space-5) var(--space-9); }
 .hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-7); align-items: center; }
@@ -95,13 +100,27 @@
 .plan--premium .ico-yes { stroke: #FFFFFF; }
 .plans__note { margin: var(--space-5) 0 0; color: var(--color-text-muted); font-size: var(--step--1); }
 
-/* Quem está por trás */
-.trust { list-style: none; margin: 0; padding: 0; }
-.trust li { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-2); padding-block: var(--space-5); border-top: 1px solid var(--color-rule); }
-.trust li:last-child { border-bottom: 1px solid var(--color-rule); }
+/* Marca: feature grid com o símbolo em destaque (não é captura de tela — ver .shot) */
+.brandmark { justify-self: center; display: grid; place-items: center; width: min(100%, 14rem); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--color-tint), var(--color-tint-strong)); }
+.brandmark img { width: 58%; height: auto; rotate: -8deg; }
+
+/* Nota do criador: cartão, para não ficar um bloco de texto corrido igual às seções vizinhas */
+.founder-card { max-width: 46rem; margin-inline: auto; padding: var(--space-6); border: 1px solid var(--color-rule); border-radius: 1.5rem; background: var(--color-surface); box-shadow: 0 24px 40px -34px rgb(var(--zv-ink-rgb) / 0.35); }
+.founder-sig { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--color-rule); }
+.founder-sig p { margin: 0; }
+.founder-sig__avatar { flex: none; width: 2.75rem; height: 2.75rem; border-radius: 50%; object-fit: cover; }
+
+/* Quem está por trás: mesma linguagem visual de cartão+ícone do bloco "Mais do que o essencial"
+   (.also) — a versão anterior (lista com linhas divisórias, sem ícone) ficou sem identidade visual
+   própria ao lado das seções vizinhas. */
+.trust { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+.trust li { display: grid; gap: var(--space-2); align-content: start; min-width: 0; padding: var(--space-5); border: 1px solid var(--color-rule); border-radius: 1.1rem; background: var(--color-bg); transition: translate 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.trust li:hover { translate: 0 -4px; border-color: rgb(var(--zv-primary-rgb) / 0.35); box-shadow: 0 22px 34px -26px rgb(var(--zv-ink-rgb) / 0.4); }
+.trust__icon { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; margin-bottom: var(--space-2); border-radius: 0.8rem; background: var(--color-tint-strong); color: var(--color-link); }
+.trust__icon svg { width: 1.4rem; height: 1.4rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .trust h3 { margin: 0; font-size: var(--step-1); }
 .trust p { margin: 0; max-width: 52ch; }
-@media (min-width: 40rem) { .trust li { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-7); align-items: baseline; } }
+@media (min-width: 40rem) { .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Perguntas */
 .faq { max-width: 46rem; }

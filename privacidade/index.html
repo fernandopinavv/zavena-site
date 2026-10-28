@@ -7,11 +7,43 @@
 
     <title>Política de Privacidade | Zavena</title>
 
+    <meta name="description"
+        content="Política de Privacidade do Zavena: quais dados são coletados, como são usados e protegidos, e os direitos do titular sobre seus dados pessoais.">
     <meta name="theme-color" content="#EFEEEB">
     <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../assets/img/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
     <link rel="canonical" href="https://zavena.app/privacidade/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Zavena">
+    <meta property="og:title" content="Política de Privacidade | Zavena">
+    <meta property="og:description"
+        content="Política de Privacidade do Zavena: quais dados são coletados, como são usados e protegidos, e os direitos do titular sobre seus dados pessoais.">
+    <meta property="og:url" content="https://zavena.app/privacidade/">
+    <meta property="og:image" content="https://zavena.app/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logotipo do Zavena: uma fita verde em laço e o nome Zavena">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://zavena.app/assets/img/og.png">
+
+    <!--
+    Estado de movimento, definido antes da pintura para não piscar (mesmo script da home):
+    - classe "js": habilita as revelações ao rolar (site.js precisa carregar);
+    - "motion-off": visitante pausou as animações, ou o sistema pede movimento reduzido.
+    Se site.js não carregar em 4 s, a classe "js" é removida e todo o conteúdo fica visível.
+    -->
+    <script>
+        (function () {
+            var d = document.documentElement;
+            d.classList.add('js');
+            try { if (localStorage.getItem('zv-motion') === 'off') d.classList.add('motion-off'); } catch (e) { }
+            if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('motion-off', 'motion-reduced');
+            setTimeout(function () { if (!window.__zv) d.classList.remove('js'); }, 4000);
+        })();
+    </script>
 
     <link rel="preload" href="../assets/fonts/Fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -20,6 +52,7 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="../assets/css/chrome.css">
     <link rel="stylesheet" href="../assets/css/page.css">
+    <link rel="stylesheet" href="../assets/css/motion.css">
     <script src="../assets/js/site.js" defer></script>
 </head>
 
@@ -38,11 +71,17 @@
                 <a class="nav-mid" href="../#perguntas">Perguntas</a>
                 <a class="nav-extra" href="../suporte/">Suporte</a>
             </nav>
+            <!-- Aparece só com JavaScript (site.js). Pausa todo movimento contínuo da página. -->
+            <button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pausar animações" title="Pausar animações" hidden>
+                <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.5" height="12" rx="1"/><rect x="11.5" y="4" width="3.5" height="12" rx="1"/></svg>
+                <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4.2v11.6a.6.6 0 0 0 .9.5l9-5.8a.6.6 0 0 0 0-1l-9-5.8a.6.6 0 0 0-.9.5z"/></svg>
+            </button>
         </div>
     </div>
 </header>
 
 <section class="page-head" aria-labelledby="titulo-pagina">
+    <img class="page-head__ribbon" src="../assets/img/zavena-simbolo.svg" alt="" width="844" height="385" aria-hidden="true">
     <div class="container">
         <h1 id="titulo-pagina">Política de Privacidade</h1>
         <p class="date">
@@ -55,7 +94,7 @@
     <div class="container">
         <div class="page__body">
 
-<h2>1. Apresentação</h2>
+<h2 class="reveal">1. Apresentação</h2>
 
 <p>
 
@@ -91,7 +130,7 @@ contato@zavena.app
 
 </p>
 
-<h2>2. Dados coletados</h2>
+<h2 class="reveal">2. Dados coletados</h2>
 
 <h3>2.1 Conta e identificação</h3>
 
@@ -208,19 +247,19 @@ Consentimento.
 
 <p>
 
-A Captura Inteligente (fotografia, scanner, galeria, compartilhamento de comprovantes ou leitura de notificações financeiras) processa o conteúdo em nossos servidores para reconhecimento e extração dos dados financeiros. Quando a origem é uma imagem, apenas o texto reconhecido e os dados extraídos são armazenados — a imagem original não é retida.
+A Captura Inteligente (fotografia, scanner, galeria, compartilhamento de comprovantes ou leitura de notificações financeiras) processa o conteúdo em nossos servidores para reconhecimento e extração dos dados financeiros. Quando a origem é uma imagem, apenas o texto reconhecido e os dados extraídos são armazenados. A imagem original não é retida.
 
 </p>
 
 <p>
 
-O Zavena poderá tratar os dados operacionais gerados durante a utilização desses recursos — como o texto reconhecido, os campos extraídos e as correções realizadas pelo usuário durante a revisão — para auditoria, diagnóstico, correção de falhas, avaliação de desempenho e melhoria contínua desses recursos, sempre observando os princípios da necessidade, minimização e segurança dos dados aplicáveis.
+O Zavena poderá tratar os dados operacionais gerados durante a utilização desses recursos (como o texto reconhecido, os campos extraídos e as correções realizadas pelo usuário durante a revisão) para auditoria, diagnóstico, correção de falhas, avaliação de desempenho e melhoria contínua desses recursos, sempre observando os princípios da necessidade, minimização e segurança dos dados aplicáveis.
 
 </p>
 
 <p>
 
-Esse tratamento é conduzido exclusivamente pela equipe da FP Inteligência, nunca compartilhado com terceiros para fins comerciais ou publicitários. O usuário não participa conscientemente de nenhum programa de treinamento — apenas percebe, ao longo do tempo, a evolução natural da ferramenta (reconhecimento mais preciso, menos necessidade de correções).
+Esse tratamento é conduzido exclusivamente pela equipe da FP Inteligência, nunca compartilhado com terceiros para fins comerciais ou publicitários. O usuário não participa conscientemente de nenhum programa de treinamento. Apenas percebe, ao longo do tempo, a evolução natural da ferramenta (reconhecimento mais preciso, menos necessidade de correções).
 
 </p>
 
@@ -296,7 +335,7 @@ Legítimo interesse.
 
 </p>
 
-<h2>3. Compartilhamento</h2>
+<h2 class="reveal">3. Compartilhamento</h2>
 
 <p>
 
@@ -322,7 +361,7 @@ O compartilhamento poderá ocorrer apenas com:
 
 </ul>
 
-<h2>4. Segurança</h2>
+<h2 class="reveal">4. Segurança</h2>
 
 <p>
 
@@ -346,7 +385,7 @@ Adotamos medidas técnicas e organizacionais para proteger as informações trat
 
 </ul>
 
-<h2>5. Retenção e exclusão</h2>
+<h2 class="reveal">5. Retenção e exclusão</h2>
 
 <p>
 
@@ -387,7 +426,7 @@ Registros estatísticos totalmente anonimizados poderão ser mantidos sem possib
 
 </p>
 
-<h2>6. Direitos do titular</h2>
+<h2 class="reveal">6. Direitos do titular</h2>
 
 <p>
 
@@ -432,7 +471,7 @@ contato@zavena.app
 
 </p>
 
-<h2>7. Transferência internacional</h2>
+<h2 class="reveal">7. Transferência internacional</h2>
 
 <p>
 
@@ -440,7 +479,7 @@ Os dados poderão ser processados em infraestrutura localizada no Brasil ou no e
 
 </p>
 
-<h2>8. Alterações desta política</h2>
+<h2 class="reveal">8. Alterações desta política</h2>
 
 <p>
 
@@ -450,7 +489,7 @@ Mudanças relevantes poderão ser comunicadas pelo aplicativo ou por e-mail.
 
 </p>
 
-<h2>9. Contato</h2>
+<h2 class="reveal">9. Contato</h2>
 
 <p>
 
