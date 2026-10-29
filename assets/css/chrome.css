@@ -39,17 +39,6 @@ html { scroll-behavior: smooth; }
 @media (min-width: 30rem) { .site-nav .nav-mid { display: inline-flex; } }
 @media (min-width: 44rem) { .site-nav .nav-extra { display: inline-flex; } }
 
-.motion-toggle {
-  display: inline-grid; place-items: center; width: var(--target); height: var(--target); padding: 0;
-  border: 1px solid var(--color-rule); border-radius: 999px; background: var(--color-surface); color: var(--color-text);
-  cursor: pointer; transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-.motion-toggle:hover { border-color: var(--color-action); }
-.motion-toggle svg { width: 1.1rem; height: 1.1rem; fill: currentColor; }
-.motion-toggle .i-play { display: none; }
-.motion-toggle[aria-pressed="true"] .i-pause { display: none; }
-.motion-toggle[aria-pressed="true"] .i-play { display: block; }
-
 /* Botões com seta */
 .btn { position: relative; gap: 0.6rem; box-shadow: 0 10px 22px -14px rgb(var(--zv-primary-rgb) / 0.55); transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.2s ease, box-shadow 0.2s ease; }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 26px -14px rgb(var(--zv-primary-rgb) / 0.55); }

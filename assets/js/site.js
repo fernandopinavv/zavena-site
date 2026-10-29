@@ -1,7 +1,7 @@
 /*
  * Zavena: comportamento da página inicial. Sem dependências.
- * Revelação ao rolar, cabeçalho fixo, barra de progresso, link ativo, inclinação do celular
- * reservado e o botão de pausar animações. Sem este arquivo a página continua completa e legível.
+ * Revelação ao rolar, cabeçalho fixo, barra de progresso, link ativo e inclinação do celular.
+ * Sem este arquivo a página continua completa e legível.
  */
 (function () {
   'use strict';
@@ -11,34 +11,9 @@
   var root = doc.documentElement;
   var header = doc.querySelector('.site-header');
   var bar = doc.querySelector('.progress');
-  var toggle = doc.querySelector('.motion-toggle');
   var reduced = root.classList.contains('motion-reduced');
-  var KEY = 'zv-motion';
 
   function motionOff() { return root.classList.contains('motion-off'); }
-
-  /* Pausar animações (WCAG 2.2.2: há movimento contínuo por mais de 5 segundos) */
-  function syncToggle() {
-    if (!toggle) return;
-    var off = motionOff();
-    toggle.setAttribute('aria-pressed', off ? 'true' : 'false');
-    toggle.setAttribute('aria-label', off ? 'Retomar animações' : 'Pausar animações');
-    toggle.setAttribute('title', off ? 'Retomar animações' : 'Pausar animações');
-  }
-  if (toggle) {
-    if (reduced) {
-      toggle.hidden = true; // o sistema já pede menos movimento
-    } else {
-      toggle.hidden = false;
-      syncToggle();
-      toggle.addEventListener('click', function () {
-        var off = !motionOff();
-        root.classList.toggle('motion-off', off);
-        try { localStorage.setItem(KEY, off ? 'off' : 'on'); } catch (e) { /* sem armazenamento: ok */ }
-        syncToggle();
-      });
-    }
-  }
 
   /* Revelação ao rolar */
   var targets = [].slice.call(doc.querySelectorAll('.reveal'));

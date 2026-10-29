@@ -1,10 +1,5 @@
 /* Página inicial (só o que é da home). Requer tokens.css, fonts.css, base.css e chrome.css. Movimento fica em motion.css. */
 
-/* Botão de pausar animação escondido no cabeçalho da home, a pedido — fica só nas páginas
-   internas (chrome.css). O mecanismo de pausa em si (site.js, localStorage, motion-off) continua
-   ativo; só o controle manual via UI desaparece aqui. */
-.site-header .motion-toggle { display: none !important; }
-
 /* Primeira dobra: a fita do logotipo é o único ornamento (sem brilhos, pontilhados nem formas soltas) */
 .hero { position: relative; isolation: isolate; overflow-x: clip; padding-block: var(--space-5) var(--space-9); }
 .hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-7); align-items: center; }
