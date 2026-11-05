@@ -1,7 +1,7 @@
 /* Página inicial (só o que é da home). Requer tokens.css, fonts.css, base.css e chrome.css. Movimento fica em motion.css. */
 
 /* Primeira dobra: a fita do logotipo é o único ornamento (sem brilhos, pontilhados nem formas soltas) */
-.hero { position: relative; isolation: isolate; overflow-x: clip; padding-block: var(--space-5) var(--space-9); }
+.hero { position: relative; isolation: isolate; overflow-x: clip; padding-block: var(--space-5) var(--space-7); }
 .hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-7); align-items: center; }
 .hero__copy h1 { margin-bottom: var(--space-5); max-width: 14ch; font-size: clamp(2.75rem, 1.6rem + 5.2vw, 5.5rem); letter-spacing: -0.02em; }
 .hero__copy .lede { max-width: 40ch; margin-bottom: var(--space-6); }
@@ -15,20 +15,21 @@
 .tag--soon { border-color: var(--color-text-muted); color: var(--color-text-muted); background: rgba(255, 255, 255, 0.7); }
 
 /* Visual da primeira dobra: celular reservado sobre a fita da marca */
-.orbit { position: relative; width: min(100%, 25rem); margin-inline: auto; padding-block: var(--space-5); display: grid; place-items: center; }
-.orbit .hero__shot { position: relative; z-index: 1; width: 58%; }
+.orbit { position: relative; width: min(100%, 26rem); margin-inline: auto; padding-block: var(--space-4); display: grid; place-items: center; }
+.orbit .hero__shot { position: relative; z-index: 1; width: min(76%, 17rem); }
 .orbit__ribbon { position: absolute; z-index: 0; left: 50%; top: 60%; width: 128%; max-width: none; height: auto; translate: -50% -50%; rotate: -8deg; pointer-events: none; user-select: none; }
 
 @media (min-width: 56rem) {
-  .hero { padding-block: var(--space-6) var(--space-9); }
-  .hero__grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: var(--space-7); }
-  .orbit { width: min(100%, 27rem); margin-inline: 0 0; justify-self: end; }
+  .hero { padding-block: var(--space-6) var(--space-8); }
+  .hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: var(--space-7); }
+  .orbit { width: min(100%, 31rem); margin-inline: 0 0; justify-self: end; }
+  .orbit .hero__shot { width: min(72%, 22rem); }
   .orbit__ribbon { left: 49%; width: 165%; }
 }
 
 /* Seções: bege e branco se alternam, separados por fios finos */
-.section { position: relative; overflow-x: clip; padding-block: var(--space-8); } /* figuras ainda não reveladas ficam deslocadas: não podem gerar rolagem horizontal */
-@media (min-width: 56rem) { .section { padding-block: var(--space-9); } }
+.section { position: relative; overflow-x: clip; padding-block: var(--space-7); } /* figuras ainda não reveladas ficam deslocadas: não podem gerar rolagem horizontal */
+@media (min-width: 56rem) { .section { padding-block: var(--space-8); } }
 .section + .section { border-top: 1px solid var(--color-rule); }
 .section--tint { background: var(--color-surface); }
 .section h2 { max-width: 23ch; }
@@ -47,7 +48,7 @@
 @media (max-width: 39.99rem) { .feature::before { display: none; } }
 .feature__copy { position: relative; z-index: 1; max-width: 38rem; }
 .feature__copy p:last-of-type { margin-bottom: 0; }
-.feature .shot { position: relative; z-index: 1; justify-self: center; width: min(100%, 13rem); }
+.feature .shot { position: relative; z-index: 1; justify-self: center; width: min(100%, 15rem); }
 .section h2 .tag { margin-left: var(--space-2); font-family: var(--font-text); font-size: var(--step--1); font-weight: 600; letter-spacing: 0; vertical-align: middle; white-space: nowrap; }
 
 @media (min-width: 56rem) {
@@ -55,7 +56,7 @@
   /* Invertida: a captura (estreita) vai para a esquerda e o texto fica na coluna larga */
   .feature--reverse { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr); }
   .feature--reverse .feature__copy { order: 2; }
-  .feature .shot { justify-self: center; width: min(100%, 16rem); }
+  .feature .shot { justify-self: center; width: min(100%, 19rem); }
 }
 
 /* Moldura de celular para as capturas reais (ainda reservadas, sem interface desenhada) */
@@ -67,6 +68,10 @@
   transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform 0.3s ease;
 }
 .shot__frame::before { content: ""; position: absolute; top: 0.8rem; left: 50%; width: 26%; height: 0.5rem; border-radius: 999px; background: var(--color-secondary); transform: translateX(-50%); }
+/* Captura real do aplicativo dentro da moldura (a proporção vem da imagem, recortada sem barra de status) */
+.shot__frame--img { display: block; padding: 0; overflow: hidden; background: var(--color-surface); }
+.shot__frame--img::before { display: none; }
+.shot__frame--img img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .shot figcaption { margin-top: var(--space-4); text-align: center; font-size: var(--step--1); color: var(--color-text-muted); }
 
 /* Também no Zavena */

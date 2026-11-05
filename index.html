@@ -25,8 +25,11 @@
     <meta property="og:image" content="https://zavena.app/assets/img/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Logotipo do Zavena: uma fita verde em laço e o nome Zavena">
+    <meta property="og:image:alt" content="Zavena: logotipo e a tela inicial do aplicativo, com saldo, resumo do mês e previsão de saldo (dados de demonstração)">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zavena | Organização financeira pessoal e familiar">
+    <meta name="twitter:description"
+        content="Mais clareza sobre o seu dinheiro: contas, cartões e faturas num só lugar, para você ou para a sua família. Disponível para Android; iOS em breve.">
     <meta name="twitter:image" content="https://zavena.app/assets/img/og.png">
 
     <!--
@@ -65,7 +68,6 @@
         "email": "contato@zavena.app",
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "",
             "addressRegion": "ES",
             "addressCountry": "BR"
         }
@@ -88,6 +90,7 @@
                 <a class="nav-mid" href="#perguntas">Perguntas</a>
                 <a class="nav-extra" href="suporte/">Suporte</a>
             </nav>
+            <a class="btn btn--sm header-cta" href="https://play.google.com/store/apps/details?id=com.zavena.finance">Baixar<span class="header-cta__more"> na Google Play</span></a>
         </div>
     </div>
 </header>
@@ -104,10 +107,10 @@
 
                 <div class="actions">
                     <!--
-                    LINK DA GOOGLE PLAY. Montado a partir do pacote com.zavena.finance (mobile/app.json).
-                    NÃO foi verificado: a ficha precisa existir e estar pública. A página foi escrita, a pedido
-                    do responsável, como se o aplicativo já estivesse publicado. Se a ficha ainda não estiver
-                    no ar, este botão leva a uma página inexistente: confirmar antes de publicar o site.
+                    LINK DA GOOGLE PLAY (pacote com.zavena.finance, mobile/app.json). Mesma URL no cabeçalho, aqui e no
+                    convite final. PRÉ-PUBLICAÇÃO: em 04/11/2026 a ficha ainda respondia 404 (aplicativo não publicado).
+                    Não colocar o site no ar antes de a ficha estar pública; depois, abrir a URL num navegador e
+                    conferir. Ver "Checklist de publicação" em assets/img/README.md.
                     -->
                     <a class="btn" href="https://play.google.com/store/apps/details?id=com.zavena.finance">Baixar na Google Play <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
                     <a class="btn btn--ghost" href="#como-funciona">Ver como funciona</a>
@@ -119,16 +122,11 @@
                 <!-- Fita do logotipo oficial: único ornamento da primeira dobra (decorativo). -->
                 <img class="orbit__ribbon" src="assets/img/zavena-simbolo.svg" alt="" width="844" height="385" aria-hidden="true">
 
-                <!--
-                ESPAÇO RESERVADO. Aqui entra uma captura REAL da Home do aplicativo, quando existir
-                (ver assets/img/README.md). Não substituir por tela simulada, ilustração do produto ou
-                imagem gerada.
-                -->
-                <figure class="shot hero__shot" data-placeholder="captura-home">
-                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real da tela inicial do aplicativo">
-                        Captura real do aplicativo<br>(espaço reservado)
+                <figure class="shot hero__shot">
+                    <div class="shot__frame shot__frame--img" style="aspect-ratio: 540 / 980">
+                        <img src="assets/img/captura-home-540.webp" srcset="assets/img/captura-home-540.webp 540w, assets/img/captura-home-1080.webp 1080w" sizes="(min-width: 56rem) 22rem, 75vw" width="540" height="980" alt="Tela inicial do Zavena: saldo disponível, resumo do mês com o que foi recebido e pago, e a previsão de saldo dos próximos dias." fetchpriority="high">
                     </div>
-                    <figcaption>Espaço reservado para a tela inicial do aplicativo.</figcaption>
+                    <figcaption>Seu resumo financeiro.</figcaption>
                 </figure>
             </div>
 
@@ -145,12 +143,11 @@
                     <p>Do mercado ao aluguel, veja cada receita e cada despesa organizadas do seu jeito, e entenda para onde o seu dinheiro foi no fim do mês.</p>
                     <p>E as contas que se repetem todo mês? O Zavena cuida delas para você.</p>
                 </div>
-                <!-- ESPAÇO RESERVADO: captura real da tela de novo lançamento. Não simular. -->
-                <figure class="shot reveal reveal--right" data-placeholder="captura-lancamento">
-                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real da tela de novo lançamento">
-                        Captura real:<br>novo lançamento<br>(espaço reservado)
-                    </div>
-                    <figcaption>Espaço reservado para a tela de novo lançamento.</figcaption>
+                <figure class="shot reveal reveal--right">
+                    <div class="shot__frame shot__frame--img" style="aspect-ratio: 540 / 1025">
+                        <img src="assets/img/captura-lancamento-540.webp" srcset="assets/img/captura-lancamento-540.webp 540w, assets/img/captura-lancamento-1080.webp 1080w" sizes="(min-width: 56rem) 19rem, 15rem" width="540" height="1025" alt="Lista de lançamentos do Zavena, com categoria, data, valor e o cartão ou a conta de cada compra." loading="lazy" decoding="async">
+                        </div>
+                        <figcaption>Lançamentos organizados por categoria.</figcaption>
                 </figure>
             </div>
         </section>
@@ -161,12 +158,11 @@
                     <h2 id="t-cartao">A fatura do cartão, sem surpresas.</h2>
                     <p>Acompanhe as suas contas e os seus cartões de crédito e saiba, com antecedência, o que já está comprometido nos próximos meses. Faturas e parcelas deixam de ser um mistério.</p>
                 </div>
-                <!-- ESPAÇO RESERVADO: captura real de uma fatura de cartão com parcelas. Não simular. -->
-                <figure class="shot reveal reveal--left" data-placeholder="captura-fatura">
-                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real de uma fatura de cartão">
-                        Captura real:<br>fatura do cartão<br>(espaço reservado)
+                <figure class="shot reveal reveal--left">
+                    <div class="shot__frame shot__frame--img" style="aspect-ratio: 540 / 1025">
+                        <img src="assets/img/captura-fatura-540.webp" srcset="assets/img/captura-fatura-540.webp 540w, assets/img/captura-fatura-1080.webp 1080w" sizes="(min-width: 56rem) 19rem, 15rem" width="540" height="1025" alt="Fatura aberta de um cartão de crédito no Zavena, com limite disponível, valor previsto e o mês da fatura." loading="lazy" decoding="async">
                     </div>
-                    <figcaption>Espaço reservado para uma fatura de cartão.</figcaption>
+                    <figcaption>Gere suas faturas.</figcaption>
                 </figure>
             </div>
         </section>
@@ -179,44 +175,41 @@
                     <p><strong>Lançamento Rápido.</strong> Tem um comprovante na mão? Mostre para o Zavena e deixe o lançamento praticamente pronto: você só confere. </p>
                     <p class="small">Quer saber como cuidamos dos seus dados? Leia a <a href="privacidade/">Política de Privacidade</a>.</p>
                 </div>
-                <!-- ESPAÇO RESERVADO: captura real da tela de importação. Não simular. -->
-                <figure class="shot reveal reveal--right" data-placeholder="captura-importacao">
-                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real da tela de importação">
-                        Captura real:<br>importação<br>(espaço reservado)
+                <figure class="shot reveal reveal--right">
+                    <div class="shot__frame shot__frame--img" style="aspect-ratio: 540 / 1120">
+                        <img src="assets/img/captura-importacao-540.webp" srcset="assets/img/captura-importacao-540.webp 540w, assets/img/captura-importacao-1080.webp 1080w" sizes="(min-width: 56rem) 19rem, 15rem" width="540" height="1120" alt="Revisão de um extrato OFX no Zavena: seis lançamentos novos e nenhum possível duplicado, prontos para importar." loading="lazy" decoding="async">
                     </div>
-                    <figcaption>Espaço reservado para a tela de importação.</figcaption>
+                    <figcaption>A importação de um extrato.</figcaption>
                 </figure>
             </div>
         </section>
 
-        <section class="section section--tint" aria-labelledby="t-familia">
+        <section class="section section--tint" aria-labelledby="t-relatorios">
             <div class="container feature feature--reverse" data-num="04">
-                <div class="feature__copy reveal">
-                    <h2 id="t-familia">A casa inteira, no mesmo lugar. </h2>
-                    <p>Dividir a vida financeira fica mais leve quando todo mundo está na mesma página. Convide a sua família e organizem o dinheiro da casa juntos.</p>
-                </div>
-                <!-- ESPAÇO RESERVADO: captura real da tela de famílias. Não simular. -->
-                <figure class="shot reveal reveal--left" data-placeholder="captura-familia">
-                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real da tela de famílias">
-                        Captura real:<br>família<br>(espaço reservado)
-                    </div>
-                    <figcaption>Espaço reservado para a tela de família.</figcaption>
-                </figure>
-            </div>
-        </section>
-
-        <section class="section" aria-labelledby="t-relatorios">
-            <div class="container feature" data-num="05">
                 <div class="feature__copy reveal">
                     <h2 id="t-relatorios">Entenda como o período fechou. </h2>
                     <p>Descubra, de forma clara, como foi o seu período: o que entrou, o que saiu e o que isso significa para o seu caixa. E, se algum número chamar a atenção, você chega até o motivo.</p>
                 </div>
-                <!-- ESPAÇO RESERVADO: captura real da tela de relatórios. Não simular. -->
-                <figure class="shot reveal reveal--right" data-placeholder="captura-relatorios">
-                    <div class="shot__frame" role="img" aria-label="Espaço reservado para uma captura real da tela de relatórios">
-                        Captura real:<br>relatórios<br>(espaço reservado)
+                <figure class="shot reveal reveal--left">
+                    <div class="shot__frame shot__frame--img" style="aspect-ratio: 540 / 1058">
+                        <img src="assets/img/captura-relatorios-540.webp" srcset="assets/img/captura-relatorios-540.webp 540w, assets/img/captura-relatorios-1080.webp 1080w" sizes="(min-width: 56rem) 19rem, 15rem" width="540" height="1058" alt="Relatórios do Zavena para um mês: receitas, despesas e o resultado do período." loading="lazy" decoding="async">
                     </div>
-                    <figcaption>Espaço reservado para a tela de relatórios.</figcaption>
+                    <figcaption>O resultado do mês.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="t-familia">
+            <div class="container feature" data-num="05">
+                <div class="feature__copy reveal">
+                    <h2 id="t-familia">A casa inteira, no mesmo lugar. </h2>
+                    <p>Dividir a vida financeira fica mais leve quando todo mundo está na mesma página. Convide a sua família e organizem o dinheiro da casa juntos.</p>
+                </div>
+                <figure class="shot reveal reveal--right">
+                    <div class="shot__frame shot__frame--img" style="aspect-ratio: 540 / 1120">
+                        <img src="assets/img/captura-familia-540.webp" srcset="assets/img/captura-familia-540.webp 540w, assets/img/captura-familia-1080.webp 1080w" sizes="(min-width: 56rem) 19rem, 15rem" width="540" height="1120" alt="Lista de membros da Família Costa no Zavena: Carlos Costa e Marina Costa, ambos ativos, com o botão para convidar mais pessoas." loading="lazy" decoding="async">
+                    </div>
+                    <figcaption>Gestão de membros da família.</figcaption>
                 </figure>
             </div>
         </section>
@@ -269,7 +262,7 @@
                     <ul class="plan__list">
                         <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Contas e cartões sem limite</li>
                         <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>A casa inteira junto, em família</li>
-                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Relatórios para entender como o período fechou</li>
+                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Acesso aos relatórios, para entender como o período fechou</li>
                         <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Lançamento Rápido: do comprovante ao lançamento</li>
                     </ul>
                 </article>
@@ -334,8 +327,7 @@
         <div class="container feature">
             <div class="feature__copy reveal">
                 <h2 id="t-marca">Por que Zavena.</h2>
-                <p>O nome vem da ideia de organizar. As contas da casa ficam atadas num só lugar, como um laço.</p>
-                <p>O verde da marca fala de clareza e crescimento; o grafite, de seriedade com o seu dinheiro. A fita que aparece pelo site é esse laço: várias pontas (contas, cartões, família) reunidas em uma só.</p>
+                <p>O nome vem da ideia de organizar: as contas da casa atadas num só lugar, como um laço. O verde fala de clareza e crescimento; o grafite, de seriedade com o seu dinheiro.</p>
             </div>
             <div class="brandmark reveal reveal--right" aria-hidden="true">
                 <img src="assets/img/zavena-simbolo.svg" alt="" width="844" height="385">
@@ -350,8 +342,8 @@
         <div class="container">
             <div class="founder-card reveal">
                 <h2 id="t-criador">Fiz o Zavena porque sentia essa falta.</h2>
-                <p class="lede">Sou contador e consultor de gestão de negócios. Trabalho com FP&amp;A, controladoria e finanças há mais de 5 anos, e programo há pelo menos 3. Essa combinação foi o que me fez notar o problema: os apps de finanças pessoais mostram números, mas raramente da forma que ajuda a decidir bem. A maioria mistura regime de caixa com regime de competência sem avisar, e isso distorce a leitura real da sua situação financeira.</p>
-                <p class="lede">No Zavena, cada tela foi pensada por quem já diagnosticou esse tipo de problema dentro de empresas. Uso aqui a mesma lógica que empresas grandes usam para acompanhar resultado: KPIs claros, previsto separado do realizado, indicadores que realmente servem para decidir. Não é só um app bonito. É um app desenhado por quem entende de números.</p>
+                <p class="lede">Sou contador e consultor de gestão de negócios, com mais de 5 anos em FP&amp;A, controladoria e finanças, e programo há pelo menos 3. Foi dessa combinação que nasceu o Zavena.</p>
+                <p class="lede">Fiz o aplicativo para dar clareza a quem organiza as próprias contas: o que já foi pago, o que ainda vem pela frente e o que isso significa para o seu caixa.</p>
                 <div class="founder-sig">
                     <img class="founder-sig__avatar" src="assets/img/perfil.jpeg" alt="Foto de Fernando Pina" width="400" height="400">
                     <p class="small">
