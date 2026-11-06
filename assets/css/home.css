@@ -1,7 +1,7 @@
 /* Página inicial (só o que é da home). Requer tokens.css, fonts.css, base.css e chrome.css. Movimento fica em motion.css. */
 
 /* Primeira dobra: a fita do logotipo é o único ornamento (sem brilhos, pontilhados nem formas soltas) */
-.hero { position: relative; isolation: isolate; overflow-x: clip; padding-block: var(--space-5) var(--space-7); }
+.hero { position: relative; isolation: isolate; overflow-x: clip; padding-block: var(--space-5) var(--space-6); }
 .hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-7); align-items: center; }
 .hero__copy h1 { margin-bottom: var(--space-5); max-width: 14ch; font-size: clamp(2.75rem, 1.6rem + 5.2vw, 5.5rem); letter-spacing: -0.02em; }
 .hero__copy .lede { max-width: 40ch; margin-bottom: var(--space-6); }
@@ -20,12 +20,22 @@
 .orbit__ribbon { position: absolute; z-index: 0; left: 50%; top: 60%; width: 128%; max-width: none; height: auto; translate: -50% -50%; rotate: -8deg; pointer-events: none; user-select: none; }
 
 @media (min-width: 56rem) {
-  .hero { padding-block: var(--space-6) var(--space-8); }
+  .hero { padding-block: var(--space-6) var(--space-6); }
   .hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: var(--space-7); }
   .orbit { width: min(100%, 31rem); margin-inline: 0 0; justify-self: end; }
   .orbit .hero__shot { width: min(72%, 22rem); }
   .orbit__ribbon { left: 49%; width: 165%; }
 }
+
+/* Faixa do resumo (recorte real da tela inicial): pausa visual entre a primeira dobra e os recursos */
+.strip { padding-block: var(--space-6); background: var(--color-surface); border-block: 1px solid var(--color-rule); overflow-x: clip; }
+@media (min-width: 56rem) { .strip { padding-block: var(--space-7); } }
+.strip__fig { display: flex; flex-direction: column; align-items: center; margin: 0; }
+.strip__frame { width: min(100%, 34rem); border: 1px solid var(--color-rule); border-radius: 1.5rem; overflow: hidden; background: #FFFFFF; box-shadow: 0 24px 40px -34px rgb(var(--zv-ink-rgb) / 0.35); }
+.strip__frame img { display: block; width: 100%; height: auto; }
+.strip__fig figcaption { max-width: 34rem; margin-top: var(--space-4); text-align: center; font-family: var(--font-display); font-size: var(--step-1); line-height: 1.3; color: var(--color-text); }
+.strip__fig--acima { flex-direction: column-reverse; }
+.strip__fig--acima figcaption { margin-top: 0; margin-bottom: var(--space-4); }
 
 /* Seções: bege e branco se alternam, separados por fios finos */
 .section { position: relative; overflow-x: clip; padding-block: var(--space-7); } /* figuras ainda não reveladas ficam deslocadas: não podem gerar rolagem horizontal */
@@ -49,6 +59,7 @@
 .feature__copy { position: relative; z-index: 1; max-width: 38rem; }
 .feature__copy p:last-of-type { margin-bottom: 0; }
 .feature .shot { position: relative; z-index: 1; justify-self: center; width: min(100%, 15rem); }
+.feature .shot--lg { width: min(100%, 17rem); }
 .section h2 .tag { margin-left: var(--space-2); font-family: var(--font-text); font-size: var(--step--1); font-weight: 600; letter-spacing: 0; vertical-align: middle; white-space: nowrap; }
 
 @media (min-width: 56rem) {
@@ -57,6 +68,7 @@
   .feature--reverse { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr); }
   .feature--reverse .feature__copy { order: 2; }
   .feature .shot { justify-self: center; width: min(100%, 19rem); }
+  .feature .shot--lg { width: min(100%, 22.5rem); }
 }
 
 /* Moldura de celular para as capturas reais (ainda reservadas, sem interface desenhada) */
@@ -76,7 +88,7 @@
 
 /* Também no Zavena */
 .also { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
-.also li { display: grid; gap: var(--space-2); align-content: start; min-width: 0; padding: var(--space-5); border: 1px solid var(--color-rule); border-radius: 1.1rem; background: var(--color-bg); transition: translate 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.also li { display: grid; gap: var(--space-2); align-content: start; min-width: 0; padding: var(--space-5); border: 1px solid var(--color-rule); border-radius: 1.1rem; background: var(--color-surface); transition: translate 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
 .also li:hover { translate: 0 -4px; border-color: rgb(var(--zv-primary-rgb) / 0.35); box-shadow: 0 22px 34px -26px rgb(var(--zv-ink-rgb) / 0.4); }
 .also__icon { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; margin-bottom: var(--space-2); border-radius: 0.8rem; background: var(--color-tint-strong); color: var(--color-link); }
 .also__icon svg { width: 1.4rem; height: 1.4rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
@@ -88,6 +100,7 @@
 .plan-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-5); align-items: stretch; }
 @media (min-width: 48rem) { .plan-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); } .plan { padding: var(--space-6); } }
 .plan { display: flex; flex-direction: column; padding: var(--space-5); border: 1px solid var(--color-rule); border-radius: 1.5rem; background: var(--color-surface); box-shadow: 0 30px 50px -40px rgb(var(--zv-ink-rgb) / 0.4); transition: translate 0.3s ease, box-shadow 0.3s ease; }
+.section--tint .plan:not(.plan--premium) { background: var(--color-bg); } /* a seção de planos é tingida: o cartão Gratuito volta ao fundo base para não se confundir com ela */
 .plan:hover { translate: 0 -4px; box-shadow: 0 36px 54px -36px rgb(var(--zv-ink-rgb) / 0.45); }
 .plan h3 { margin: 0 0 var(--space-2); font-size: var(--step-2); }
 .plan__lead { margin: 0 0 var(--space-5); color: var(--color-text-muted); }
@@ -105,10 +118,14 @@
 .brandmark img { width: 58%; height: auto; rotate: -8deg; }
 
 /* Nota do criador: cartão, para não ficar um bloco de texto corrido igual às seções vizinhas */
-.founder-card { max-width: 46rem; margin-inline: auto; padding: var(--space-6); border: 1px solid var(--color-rule); border-radius: 1.5rem; background: var(--color-surface); box-shadow: 0 24px 40px -34px rgb(var(--zv-ink-rgb) / 0.35); }
-.founder-sig { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--color-rule); }
-.founder-sig p { margin: 0; }
-.founder-sig__avatar { flex: none; width: 2.75rem; height: 2.75rem; border-radius: 50%; object-fit: cover; }
+.founder-card { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-5); align-items: start; max-width: 54rem; margin-inline: auto; padding: var(--space-6); border: 1px solid var(--color-rule); border-radius: 1.5rem; background: var(--color-surface); box-shadow: 0 24px 40px -34px rgb(var(--zv-ink-rgb) / 0.35); }
+.founder-card__photo { display: block; width: 7.5rem; height: 7.5rem; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 4px var(--color-bg), 0 0 0 5px var(--color-rule), 0 18px 28px -18px rgb(var(--zv-ink-rgb) / 0.55); }
+.founder-card__body > :last-child { margin-bottom: 0; }
+.founder-card__sig { margin: var(--space-5) 0 0; padding-top: var(--space-4); border-top: 1px solid var(--color-rule); }
+@media (min-width: 40rem) {
+  .founder-card { grid-template-columns: auto minmax(0, 1fr); gap: var(--space-6); padding: var(--space-7) var(--space-6); }
+  .founder-card__photo { width: 9.5rem; height: 9.5rem; }
+}
 
 /* Quem está por trás: mesma linguagem visual de cartão+ícone do bloco "Mais do que o essencial"
    (.also) — a versão anterior (lista com linhas divisórias, sem ícone) ficou sem identidade visual
@@ -160,3 +177,23 @@
   .cta-final { padding-block: var(--space-7); }
   .cta-final h2 { font-size: var(--step-3); }
 }
+
+/* Captura ampliável (lightbox.js): botão sobre a imagem e modal em <dialog> */
+.shot__zoom { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; border-radius: inherit; background: none; color: inherit; font: inherit; cursor: zoom-in; }
+.shot__zoom:focus-visible { outline: 3px solid var(--color-action); outline-offset: -6px; }
+.shot__zoom-icon { position: absolute; z-index: 2; top: -0.5rem; right: -0.5rem; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: rgb(255 255 255 / 0.92); color: var(--color-primary-dark); box-shadow: 0 6px 14px -6px rgb(var(--zv-ink-rgb) / 0.5); pointer-events: none; transition: transform 0.2s ease; }
+.shot:hover .shot__zoom-icon { transform: scale(1.08); }
+.shot__zoom-icon svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+html.lightbox-open { overflow: hidden; }
+dialog.lightbox { width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: #FFFFFF; overflow: hidden; }
+dialog.lightbox::backdrop { background: rgb(16 36 44 / 0.88); }
+.lightbox__scroll { display: flex; width: 100%; height: 100%; overflow: auto; overscroll-behavior: contain; padding: 4.25rem 1rem 2rem; }
+.lightbox__fig { width: min(100%, 36rem); margin: auto; }
+.lightbox__img { display: block; width: 100%; height: auto; border: 8px solid var(--color-secondary); border-radius: 2rem; background: var(--color-surface); box-shadow: 0 40px 60px -30px rgb(0 0 0 / 0.6); }
+.lightbox__cap { margin-top: var(--space-3); text-align: center; font-size: var(--step--1); color: rgb(255 255 255 / 0.85); }
+.lightbox__close { position: fixed; top: 0.75rem; right: 0.75rem; z-index: 2; display: grid; place-items: center; width: 3rem; height: 3rem; padding: 0; border: 0; border-radius: 50%; background: #FFFFFF; color: var(--color-text); cursor: pointer; box-shadow: 0 8px 20px -8px rgb(0 0 0 / 0.6); }
+.lightbox__close:hover { background: var(--color-surface); }
+.lightbox__close:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 3px; }
+.lightbox__close svg { width: 1.3rem; height: 1.3rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+@keyframes zv-lightbox-in { from { opacity: 0; scale: 0.97; } }
+html:not(.motion-off) dialog.lightbox[open] .lightbox__fig { animation: zv-lightbox-in 0.22s ease-out; }

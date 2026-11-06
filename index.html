@@ -57,6 +57,7 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/motion.css">
     <script src="assets/js/site.js" defer></script>
+    <script src="assets/js/lightbox.js" defer></script>
 
     <script type="application/ld+json">
     {
@@ -103,7 +104,7 @@
 
             <div class="hero__copy">
                 <h1 id="hero-titulo"><span class="w" style="--i:0"><span>As</span></span> <span class="w" style="--i:1"><span>contas</span></span> <span class="w" style="--i:2"><span>da</span></span> <span class="w" style="--i:3"><span>sua</span></span> <span class="w" style="--i:4"><span>casa,</span></span> <span class="w" style="--i:5"><span>em</span></span> <span class="w hero__em" style="--i:6"><span>ordem.</span></span></h1>
-                <p class="lede">O aplicativo de finanças pessoais e da família: mais clareza sobre o seu dinheiro, do dia a dia ao que ainda vem pela frente.</p>
+                <p class="lede">Organize suas receitas, despesas, contas e cartões em um só lugar. Tenha mais clareza sobre seu dinheiro e tome decisões melhores no dia a dia.</p>
 
                 <div class="actions">
                     <!--
@@ -115,7 +116,7 @@
                     <a class="btn" href="https://play.google.com/store/apps/details?id=com.zavena.finance">Baixar na Google Play <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
                     <a class="btn btn--ghost" href="#como-funciona">Ver como funciona</a>
                 </div>
-                <p class="small hero__note">Plano gratuito disponível. Para Android. <span class="tag tag--soon">iOS em breve</span></p>
+                <p class="small hero__note"> Teste o premium gratuito por 7 dias. <span class="tag tag--soon">iOS em breve</span></p>
             </div>
 
             <div class="orbit">
@@ -136,8 +137,8 @@
     <!-- 2 a 6. Como funciona -->
     <div id="como-funciona">
 
-        <section class="section" aria-labelledby="t-dia">
-            <div class="container feature" data-num="01">
+        <section class="section section--tint" aria-labelledby="t-dia">
+            <div class="container feature feature--reverse" data-num="01">
                 <div class="feature__copy reveal">
                     <h2 id="t-dia">Saiba para onde vai o seu dinheiro.</h2>
                     <p>Do mercado ao aluguel, veja cada receita e cada despesa organizadas do seu jeito, e entenda para onde o seu dinheiro foi no fim do mês.</p>
@@ -152,23 +153,23 @@
             </div>
         </section>
 
-        <section class="section section--tint" aria-labelledby="t-cartao">
-            <div class="container feature feature--reverse" data-num="02">
+        <section class="section" aria-labelledby="t-cartao">
+            <div class="container feature" data-num="02">
                 <div class="feature__copy reveal">
                     <h2 id="t-cartao">A fatura do cartão, sem surpresas.</h2>
                     <p>Acompanhe as suas contas e os seus cartões de crédito e saiba, com antecedência, o que já está comprometido nos próximos meses. Faturas e parcelas deixam de ser um mistério.</p>
                 </div>
-                <figure class="shot reveal reveal--left">
+                <figure class="shot shot--lg reveal reveal--left">
                     <div class="shot__frame shot__frame--img" style="aspect-ratio: 540 / 1025">
-                        <img src="assets/img/captura-fatura-540.webp" srcset="assets/img/captura-fatura-540.webp 540w, assets/img/captura-fatura-1080.webp 1080w" sizes="(min-width: 56rem) 19rem, 15rem" width="540" height="1025" alt="Fatura aberta de um cartão de crédito no Zavena, com limite disponível, valor previsto e o mês da fatura." loading="lazy" decoding="async">
+                        <img src="assets/img/captura-fatura-540.webp" srcset="assets/img/captura-fatura-540.webp 540w, assets/img/captura-fatura-1080.webp 1080w" sizes="(min-width: 56rem) 22.5rem, 17rem" width="540" height="1025" alt="Fatura aberta de um cartão de crédito no Zavena, com limite disponível, valor previsto e o mês da fatura." loading="lazy" decoding="async">
                     </div>
                     <figcaption>Gere suas faturas.</figcaption>
                 </figure>
             </div>
         </section>
 
-        <section class="section" aria-labelledby="t-importar">
-            <div class="container feature" data-num="03">
+        <section class="section section--tint" aria-labelledby="t-importar">
+            <div class="container feature feature--reverse" data-num="03">
                 <div class="feature__copy reveal">
                     <h2 id="t-importar">Não digite tudo de novo.</h2>
                     <p>Já tem o seu histórico guardado em extratos ou planilhas? Leve tudo para o Zavena e comece com a casa em ordem desde o primeiro dia.</p>
@@ -184,8 +185,8 @@
             </div>
         </section>
 
-        <section class="section section--tint" aria-labelledby="t-relatorios">
-            <div class="container feature feature--reverse" data-num="04">
+        <section class="section" aria-labelledby="t-relatorios">
+            <div class="container feature" data-num="04">
                 <div class="feature__copy reveal">
                     <h2 id="t-relatorios">Entenda como o período fechou. </h2>
                     <p>Descubra, de forma clara, como foi o seu período: o que entrou, o que saiu e o que isso significa para o seu caixa. E, se algum número chamar a atenção, você chega até o motivo.</p>
@@ -199,8 +200,9 @@
             </div>
         </section>
 
-        <section class="section" aria-labelledby="t-familia">
-            <div class="container feature" data-num="05">
+
+        <section class="section section--tint" aria-labelledby="t-familia">
+            <div class="container feature feature--reverse" data-num="05">
                 <div class="feature__copy reveal">
                     <h2 id="t-familia">A casa inteira, no mesmo lugar. </h2>
                     <p>Dividir a vida financeira fica mais leve quando todo mundo está na mesma página. Convide a sua família e organizem o dinheiro da casa juntos.</p>
@@ -214,7 +216,7 @@
             </div>
         </section>
 
-        <section class="section section--tint" aria-labelledby="t-tambem">
+        <section class="section" aria-labelledby="t-tambem">
             <div class="container">
                 <div class="section__intro reveal">
                     <h2 id="t-tambem">Mais do que o essencial.</h2>
@@ -237,7 +239,7 @@
     </div>
 
     <!-- 7. Planos -->
-    <section class="section" id="planos" aria-labelledby="t-planos">
+    <section class="section section--tint" id="planos" aria-labelledby="t-planos">
         <div class="container">
             <div class="section__intro reveal">
                 <h2 id="t-planos">Comece de graça. Evolua quando precisar.</h2>
@@ -261,9 +263,13 @@
                     <p class="plan__lead">Tudo do gratuito, e mais para a sua rotina inteira.</p>
                     <ul class="plan__list">
                         <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Contas e cartões sem limite</li>
-                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>A casa inteira junto, em família</li>
+                        <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Finanças compartilhadas com a sua família, sem limite de membros</li>
                         <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Acesso aos relatórios, para entender como o período fechou</li>
                         <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Lançamento Rápido: do comprovante ao lançamento</li>
+                         <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Leitor de notificações, disponível somente no Android</li>
+                         <!-- crie uma seção de testar o plano gratuito por 7 dias sem compromisso -->
+                          <li><svg class="ico-yes" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Teste o plano gratuito por 7 dias sem compromisso</li>
+                         
                     </ul>
                 </article>
             </div>
@@ -320,36 +326,21 @@
         </div>
     </section>
 
-    <!-- 8a. Identidade da marca: por que o nome, por que a fita. Layout .feature (igual às seções
-         "como funciona"), mas o visual é o símbolo da marca, não uma captura de tela — por isso
-         .brandmark, não .shot (que é reservado só para capturas reais). -->
-    <section class="section" aria-labelledby="t-marca">
-        <div class="container feature">
-            <div class="feature__copy reveal">
-                <h2 id="t-marca">Por que Zavena.</h2>
-                <p>O nome vem da ideia de organizar: as contas da casa atadas num só lugar, como um laço. O verde fala de clareza e crescimento; o grafite, de seriedade com o seu dinheiro.</p>
-            </div>
-            <div class="brandmark reveal reveal--right" aria-hidden="true">
-                <img src="assets/img/zavena-simbolo.svg" alt="" width="844" height="385">
-            </div>
-        </div>
-    </section>
-
     <!-- 8a2. Nota do criador: experiência real por trás do produto (conteúdo aprovado por Fernando).
-         Cartão (.founder-card), não mais um bloco de texto corrido igual ao resto — assinatura com
-         avatar de iniciais (sem foto, por decisão do Fernando) e link para o LinkedIn. -->
+         Cartão (.founder-card) em composição editorial: foto real (perfil.jpeg) ao lado do texto no
+         desktop, empilhada no celular; assinatura e link para o LinkedIn ao final. -->
     <section class="section section--tint" id="criador" aria-labelledby="t-criador">
         <div class="container">
             <div class="founder-card reveal">
+                <img class="founder-card__photo" src="assets/img/perfil.jpeg" alt="Foto de Fernando Pina" width="400" height="400" loading="lazy" decoding="async">
+                <div class="founder-card__body">
                 <h2 id="t-criador">Fiz o Zavena porque sentia essa falta.</h2>
-                <p class="lede">Sou contador e consultor de gestão de negócios, com mais de 5 anos em FP&amp;A, controladoria e finanças, e programo há pelo menos 3. Foi dessa combinação que nasceu o Zavena.</p>
+                <p class="lede">Sou contador e consultor de gestão de negócios, com mais de 5 anos em FP&amp;A, controladoria e finanças, e também atuo com desenvolvimento de software há pelo menos 3 anos. Foi dessa combinação que nasceu o Zavena.</p>
                 <p class="lede">Fiz o aplicativo para dar clareza a quem organiza as próprias contas: o que já foi pago, o que ainda vem pela frente e o que isso significa para o seu caixa.</p>
-                <div class="founder-sig">
-                    <img class="founder-sig__avatar" src="assets/img/perfil.jpeg" alt="Foto de Fernando Pina" width="400" height="400">
-                    <p class="small">
-                        <strong>Fernando Pina</strong>, Consultor de Gestão de Negócios (FP&amp;A | Controladoria | Finanças)<br>
-                        <a href="https://www.linkedin.com/in/pinafernando">Perfil no LinkedIn ↗</a>
-                    </p>
+                <p class="small founder-card__sig">
+                    <strong>Fernando Pina</strong>, Consultor de Gestão de Negócios (FP&amp;A | Controladoria | Finanças)<br>
+                    <a href="https://www.linkedin.com/in/pinafernando">Perfil no LinkedIn ↗</a>
+                </p>
                 </div>
             </div>
         </div>

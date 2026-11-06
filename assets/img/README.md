@@ -53,3 +53,5 @@ Pendências que dependem do aplicativo ou da Google Play (registradas em 04/11/2
 4. **Premium: leitor de notificações e exportação.** Estão como Premium no código, mas a disponibilidade na versão publicada não pôde ser confirmada; por isso não foram anunciados. Incluir nos planos quando confirmado.
 5. **Premium: relatórios.** A tela de Relatórios exibe paywall sem o recurso `advanced_reports` (RelatoriosScreen.tsx); o texto do plano permanece "Acesso aos relatórios".
 6. **iOS "em breve".** Sem data nem build confirmados; manter o selo sem prazo.
+7. **Faixa do resumo (`captura-resumo-540/1080.webp`).** É um recorte exato (1080x640, a partir de y=1160) de `captura-home-1080.webp`. Ao recapturar a tela inicial, regenerar esse recorte e atualizar o `alt` da faixa em `index.html` com os valores novos.
+8. **Ampliação das capturas.** `assets/js/lightbox.js` transforma cada `.shot__frame--img` em botão com modal `<dialog>`. Validar o modal em aparelho físico antes de publicar (fundo escuro, rolagem e imagem).
